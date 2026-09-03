@@ -1,0 +1,52 @@
+{
+  "name": "ai-study-notification-center",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "合成数据版 AI 留学通知行动中心",
+  "scripts": {
+    "demo:setup": "npm ci --prefix frontend",
+    "demo": "node scripts/run-hosted-demo.js",
+    "demo:build": "DEMO_MODE=hosted npm --prefix frontend run build",
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "dev": "node --env-file-if-exists=.env --watch src/server.js",
+    "phase1:mock": "node src/v2/phase1/run-phase1-mock.js",
+    "phase1:smoke": "node --env-file-if-exists=.env src/v2/phase1/run-phase1-smoke.js",
+    "phase1:core:mock": "node src/v2/phase1/run-phase1-core-mock.js",
+    "phase1:core:smoke": "node src/v2/phase1/run-phase1-core-smoke.js",
+    "phase2a:offline": "node src/v2/phase2/run-phase2a-offline.js",
+    "phase2b:deepseek": "node src/v2/phase2/run-phase2b-deepseek.js",
+    "phase2b:evaluate": "DEEPSEEK_API_KEY= node src/v2/phase2/run-phase2b-evaluate.js",
+    "phase2r-b:deepseek": "node src/v2/phase2rb/run-phase2rb-deepseek.js",
+    "phase2r-b:evaluate": "DEEPSEEK_API_KEY= DEEPSEEK_MODEL= DEEPSEEK_BASE_URL= DEEPSEEK_TIMEOUT_MS= node src/v2/phase2rb/run-phase2rb-evaluate.js",
+    "phase2r-d:deepseek": "node src/v2/phase2rd/run-phase2rd-deepseek.js",
+    "phase2r-d:evaluate": "DEEPSEEK_API_KEY= DEEPSEEK_MODEL= DEEPSEEK_BASE_URL= DEEPSEEK_TIMEOUT_MS= node src/v2/phase2rd/run-phase2rd-evaluate.js",
+    "test:phase1": "node --test test/v2/*.test.js",
+    "test:phase1r-a": "DEEPSEEK_API_KEY= DEMO_INVITE_CODES= node --test test/v2/*.test.js test/config.test.js test/deepseek-responses-client.test.js test/model-gate.test.js test/session-store.test.js test/synthetic-policy.test.js test/synthetic-data.test.js test/validation.test.js",
+    "test:phase2a": "node --test test/v2/phase2-*.test.js test/v2/run-phase2a-offline.integration.test.js",
+    "test:phase2b": "node --test test/v2/phase2b-*.test.js test/v2/run-phase2b-deepseek.offline.test.js",
+    "test:phase2r-a": "DEEPSEEK_API_KEY= DEMO_INVITE_CODES= node --test test/v2/phase2ra-*.test.js test/v2/core-prompt.test.js test/v2/phase1-core-model-adapter.test.js test/v2/phase2-core-candidate-validator.test.js test/v2/phase2-ai-output-contract-freeze.test.js",
+    "test:phase2r-b": "DEEPSEEK_API_KEY= DEEPSEEK_MODEL= DEEPSEEK_BASE_URL= DEEPSEEK_TIMEOUT_MS= DEMO_INVITE_CODES= node --test test/v2/phase2rb-*.test.js",
+    "test:phase2r-c": "env -u DEEPSEEK_API_KEY -u DEEPSEEK_MODEL -u DEEPSEEK_BASE_URL -u OPENAI_API_KEY -u DASHSCOPE_API_KEY -u QWEN_API_KEY -u NODE_OPTIONS node --test test/v2/phase2rc-*.test.js test/v2/phase2ra-core-prompt.test.js",
+    "test:phase2r-d": "env -u DEEPSEEK_API_KEY -u DEEPSEEK_MODEL -u DEEPSEEK_BASE_URL -u OPENAI_API_KEY -u DASHSCOPE_API_KEY -u QWEN_API_KEY -u NODE_OPTIONS node --test test/v2/phase2rd-*.test.js",
+    "test:phase2ao": "env -u DEEPSEEK_API_KEY -u DEEPSEEK_MODEL -u DEEPSEEK_BASE_URL -u OPENAI_API_KEY -u DASHSCOPE_API_KEY -u QWEN_API_KEY -u NODE_OPTIONS node --test test/v2/phase2ao-*.test.js && env -u DEEPSEEK_API_KEY -u DEEPSEEK_MODEL -u DEEPSEEK_BASE_URL -u OPENAI_API_KEY -u DASHSCOPE_API_KEY -u QWEN_API_KEY -u NODE_OPTIONS npm --prefix frontend run test -- tests/synthetic-analysis-http.integration.spec.ts",
+    "test:phase2al": "env -u DEEPSEEK_API_KEY -u DEEPSEEK_MODEL -u DEEPSEEK_BASE_URL -u OPENAI_API_KEY -u DASHSCOPE_API_KEY -u QWEN_API_KEY -u NODE_OPTIONS node --test test/v2/phase2al-*.test.js test/v2/phase2ao-task-service.test.js test/v2/phase2ao-task-store.test.js test/v2/phase2ao-import-boundary.test.js",
+    "test": "node --test",
+    "check:phase1": "node --check src/v2/phase1/run-phase1-mock.js && node --check src/v2/phase1/run-phase1-smoke.js && node --check src/v2/phase1/run-phase1-core-mock.js && node --check src/v2/phase1/run-phase1-core-smoke.js",
+    "check:phase2a": "node --check src/v2/contracts/ai-output-contract-manifest.js && node --check src/v2/phase2/development-input-loader.js && node --check src/v2/phase2/development-input-snapshot-builder.js && node --check src/v2/phase2/phase2-model-input-validator.js && node --check src/v2/validation/phase2-core-candidate-validator.js && node --check src/v2/phase2/core-overlap-oracle-projector.js && node --check src/v2/phase2/core-semantic-evaluator.js && node --check src/v2/phase2/phase2-evaluation-truth-manifest.js && node --check src/v2/contracts/phase2-evaluation-record-v1.schema.js && node --check src/v2/phase2/phase2-evaluation-record-writer.js && node --check src/v2/phase2/phase2a-offline-runner.js && node --check src/v2/phase2/run-phase2a-offline.js",
+    "check:phase2b": "node --check src/v2/model/phase2-core-model-adapter.js && node --check src/v2/contracts/phase2b-evaluation-record-v1.schema.js && node --check src/v2/phase2/phase2b-capture-store.js && node --check src/v2/phase2/phase2b-candidate-capture.js && node --check src/v2/phase2/phase2b-deepseek-config.js && node --check src/v2/phase2/phase2b-git-preflight.js && node --check src/v2/phase2/phase2-evaluation-truth-loader.js && node --check src/v2/phase2/phase2b-evaluation-runner.js && node --check src/v2/phase2/run-phase2b-deepseek.js && node --check src/v2/phase2/run-phase2b-evaluate.js",
+    "check:phase2r-a": "node --check src/v2/prompts/notification-analysis-core-p2-v1.js && node --check src/v2/prompts/core-prompt-registry.js && node --check src/v2/validation/core-candidate-failure-diagnostic.js && node --check src/v2/phase2r/phase2r-source-context-contract.js && node --check src/v2/phase2r/phase2r-source-context-builder.js && node --check src/v2/phase2r/phase2r-model-input-validator.js && node --check src/v2/phase2r/phase2r-development-input-loader.js && node --check src/v2/phase2r/phase2r-core-candidate-validator.js && node --check src/v2/model/phase2r-core-model-adapter.js && node --check scripts/generate-phase2r-source-context-snapshot.js",
+    "check:phase2r-b": "node --check src/v2/phase2r/phase2r-request-contract.js && node --check src/v2/phase2rb/phase2rb-run-contract.js && node --check src/v2/phase2rb/phase2rb-capture-contract.js && node --check src/v2/phase2rb/phase2rb-capture-store.js && node --check src/v2/phase2rb/phase2rb-deepseek-config.js && node --check src/v2/phase2rb/phase2rb-git-preflight.js && node --check src/v2/phase2rb/phase2rb-candidate-capture.js && node --check src/v2/phase2rb/run-phase2rb-deepseek.js && node --check src/v2/contracts/phase2rb-evaluation-record-v1.schema.js && node --check src/v2/phase2rb/phase2rb-evaluation-runner.js && node --check src/v2/phase2rb/run-phase2rb-evaluate.js",
+    "check:phase2r-c": "node --check src/v2/prompts/notification-analysis-core-p2-v2.js && node --check src/v2/phase2rc/phase2rc-request-contract.js && node --check src/v2/phase2rc/phase2rc-semantic-gate.js",
+    "check:phase2r-d": "node --check src/v2/model/phase2rd-core-model-adapter.js && node --check src/v2/phase2rd/phase2rd-spec-contract.js && node --check src/v2/phase2rd/phase2rd-run-contract.js && node --check src/v2/phase2rd/phase2rd-capture-contract.js && node --check src/v2/phase2rd/phase2rd-capture-store.js && node --check src/v2/phase2rd/phase2rd-deepseek-config.js && node --check src/v2/phase2rd/phase2rd-git-preflight.js && node --check src/v2/phase2rd/phase2rd-candidate-capture.js && node --check src/v2/phase2rd/run-phase2rd-deepseek.js && node --check src/v2/contracts/phase2rd-evaluation-record-v1.schema.js && node --check src/v2/phase2rd/phase2rd-evaluation-runner.js && node --check src/v2/phase2rd/run-phase2rd-evaluate.js",
+    "check:phase2ao": "node --check src/v2/product/contracts.js && node --check src/v2/product/action-card-v02.js && node --check src/v2/product/product-input-loader.js && node --check src/v2/product/offline-analyzers.js && node --check src/v2/product/candidate-validation.js && node --check src/v2/product/deterministic-harness.js && node --check src/v2/product/product-contract-manifest.js && node --check src/v2/product/task-store.js && node --check src/v2/product/task-service.js && node --check src/v2/product/product-api.js",
+    "check:phase2al": "node --check src/v2/phase2al/phase2al-run-contract.js && node --check src/v2/phase2al/phase2al-capture-contract.js && node --check src/v2/phase2al/phase2al-capture-store.js && node --check src/v2/phase2al/phase2al-deepseek-config.js && node --check src/v2/phase2al/phase2al-git-preflight.js && node --check src/v2/phase2al/phase2al-live-analyzer.js && node --check src/v2/phase2al/phase2al-product-runtime.js",
+    "check": "node --check src/server.js && node --check public/app.js && npm run check:phase1 && npm run check:phase2a && npm run check:phase2b && npm run check:phase2r-a && npm run check:phase2r-b && npm run check:phase2r-c && npm run check:phase2r-d && npm run check:phase2ao && npm run check:phase2al"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "ajv": "8.20.0"
+  }
+}

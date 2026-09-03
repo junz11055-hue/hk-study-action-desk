@@ -1,0 +1,30 @@
+{
+  "manifestVersion": "phase2al-implementation-manifest-v1",
+  "files": [
+    { "path": "src/agent/deepseek-responses-client.js", "sha256": "sha256:e0679460a07a2f79f766daf93ce99d87ac80c1057a90d8792b0e29dfb211504e" },
+    { "path": "src/v2/contracts/notification-analysis-core-candidate-p1-v2.schema.js", "sha256": "sha256:716f598e6ee446d5edf34e9060b983fa012612503f2eaecb2ec05ad9c7268c87" },
+    { "path": "src/v2/prompts/notification-analysis-core-p2-v1.js", "sha256": "sha256:21e047261540bfb0952ba1f10647bd71d9165ab4335d68f5aa1f5a01d49ffa6a" },
+    { "path": "src/v2/phase2r/phase2r-request-contract.js", "sha256": "sha256:15ef52122a7df3d835c5d1ced433c6354e50ce9684f92a87d4a494e8ce5a2ca8" },
+    { "path": "src/v2/phase2al/phase2al-run-contract.js", "sha256": "sha256:0779f445e3615124f4089b3862565bd83449dbabc46bd5d12a11f7eb73d0874b" },
+    { "path": "src/v2/phase2al/phase2al-capture-contract.js", "sha256": "sha256:420424dda89dd8c45c5164ae863fb08ab47140130efcd7afcf400cebf6ff73a8" },
+    { "path": "src/v2/phase2al/phase2al-capture-store.js", "sha256": "sha256:bdf724fab3ac3d3b7cde3f8fe062eebf0e566503c774e9788ea1900018e4857d" },
+    { "path": "src/v2/phase2al/phase2al-deepseek-config.js", "sha256": "sha256:e64e5894fac67ebbe217d4a7328a7d4613cded426bc72cfa673ef5855e2b3d82" },
+    { "path": "src/v2/phase2al/phase2al-git-preflight.js", "sha256": "sha256:935a88ddbff864162db7cee2eafc7fab3148ac82dd5e93b527e6fc4d624adeb2" },
+    { "path": "src/v2/phase2al/phase2al-live-analyzer.js", "sha256": "sha256:e259bb886ab1ff3f2f2d8ff49e8dc0123142b3619cd85e95f2e08f9d2901ed53" },
+    { "path": "src/v2/phase2al/phase2al-product-runtime.js", "sha256": "sha256:f1256c0b4cf6f6e4aa477a0c65b92b1fe57fd727b7c244f18fab771ec74a82be" },
+    { "path": "src/v2/product/contracts.js", "sha256": "sha256:288d6f81407afed33612f4bf804f4f1e406e7ed4eadee45bd1520ca50d9e693c" },
+    { "path": "src/v2/product/product-input-loader.js", "sha256": "sha256:30b2228615a35bdd095e8d095777317e7c18399642a39a3e86ac1c4407c36707" },
+    { "path": "src/v2/product/fixtures/synthetic-product-input-v1.json", "sha256": "sha256:ac6581a3a4b4183aea38c9797c29dc95118af03876fa42fbc9d630c4d0f4c8df" },
+    { "path": "src/v2/product/candidate-validation.js", "sha256": "sha256:49e6902f6a960edb658b40ade29f278cfca063e6b0b9bad9274f08302ee7cd28" },
+    { "path": "src/v2/product/deterministic-harness.js", "sha256": "sha256:b0c8220498dd11fcb62134b1e19ade9e4220f192c459d8e73d8bf16903b38a60" },
+    { "path": "src/v2/product/action-card-v02.js", "sha256": "sha256:e6c28a5b8299478dcfa45ccb26b479212baedecb696cdb8c7358fcc8521a308f" },
+    { "path": "src/v2/product/product-contract-manifest.js", "sha256": "sha256:ab25f293febd354dd48523f007e215adb5d0457355c1b3195053c0f52b982b90" },
+    { "path": "src/v2/product/task-store.js", "sha256": "sha256:b3f7bbfb48e655c718e5191d6d449148f4ef9e0f8b271b67efd02532aeeb1ceb" },
+    { "path": "src/v2/product/task-service.js", "sha256": "sha256:18f551d00b8fccbb64f6462cd0e0e8a3c6f49ad7b2d3096533c6e471c3840455" },
+    { "path": "src/v2/product/product-api.js", "sha256": "sha256:6ffc247a182d387b49c64b5e76a5477b05b5c4207c5a9c2ece4fbde3863c1978" },
+    { "path": "frontend/features/action-center/server/synthetic-analysis-bff.ts", "sha256": "sha256:67913248fb4da43187f0d11980f1a1e187ec0e907832f18cd2572d2b4b4d1e5e" },
+    { "path": "frontend/features/action-center/model/synthetic-analysis-task.ts", "sha256": "sha256:74dd8a04a8802ced96523364049ef1aeb0502a9429bc2137b8e3d6d8da16a063" },
+    { "path": "frontend/features/action-center/model/action-card-view-model-v0.2.ts", "sha256": "sha256:63b1bbbba0c67970e113a6c9a9b841639d0f384c3ca8ce64133d186613d2f802" },
+    { "path": "frontend/features/action-center/ui/synthetic-analysis-slot.tsx", "sha256": "sha256:a05db89625063d9c681aea2cbb0a719cc6269c93aad3061c3a7f471fc32c41b8" }
+  ]
+}

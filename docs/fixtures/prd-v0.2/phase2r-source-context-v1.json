@@ -1,0 +1,107 @@
+{
+  "snapshotVersion": "phase2r-source-context-snapshot-v1",
+  "mappingVersion": "synthetic-sender-school-map-v1",
+  "datasetSplit": "development",
+  "dataClass": "fully_synthetic",
+  "caseIds": [
+    "DEV001",
+    "DEV003",
+    "DEV004",
+    "DEV005",
+    "DEV006",
+    "DEV007",
+    "DEV008",
+    "DEV010",
+    "DEV017",
+    "DEV018",
+    "DEV019",
+    "DEV020",
+    "DEV022",
+    "DEV023",
+    "DEV024",
+    "DEV025"
+  ],
+  "cases": [
+    {
+      "caseId": "DEV001",
+      "sender_school_name": "港湾大学",
+      "mapping_id": "synthetic-harbour-university-domain-v1"
+    },
+    {
+      "caseId": "DEV003",
+      "sender_school_name": "港湾大学",
+      "mapping_id": "synthetic-harbour-university-domain-v1"
+    },
+    {
+      "caseId": "DEV004",
+      "sender_school_name": "港湾大学",
+      "mapping_id": "synthetic-harbour-university-domain-v1"
+    },
+    {
+      "caseId": "DEV005",
+      "sender_school_name": "港湾大学",
+      "mapping_id": "synthetic-harbour-university-domain-v1"
+    },
+    {
+      "caseId": "DEV006",
+      "sender_school_name": "港湾大学",
+      "mapping_id": "synthetic-harbour-university-domain-v1"
+    },
+    {
+      "caseId": "DEV007",
+      "sender_school_name": "港湾大学",
+      "mapping_id": "synthetic-harbour-university-domain-v1"
+    },
+    {
+      "caseId": "DEV008",
+      "sender_school_name": "港湾大学",
+      "mapping_id": "synthetic-harbour-university-domain-v1"
+    },
+    {
+      "caseId": "DEV010",
+      "sender_school_name": "港湾大学",
+      "mapping_id": "synthetic-harbour-university-domain-v1"
+    },
+    {
+      "caseId": "DEV017",
+      "sender_school_name": "港湾大学",
+      "mapping_id": "synthetic-harbour-university-domain-v1"
+    },
+    {
+      "caseId": "DEV018",
+      "sender_school_name": "港湾大学",
+      "mapping_id": "synthetic-harbour-university-domain-v1"
+    },
+    {
+      "caseId": "DEV019",
+      "sender_school_name": "港湾大学",
+      "mapping_id": "synthetic-harbour-university-domain-v1"
+    },
+    {
+      "caseId": "DEV020",
+      "sender_school_name": null,
+      "mapping_id": null
+    },
+    {
+      "caseId": "DEV022",
+      "sender_school_name": "港湾大学",
+      "mapping_id": "synthetic-harbour-university-domain-v1"
+    },
+    {
+      "caseId": "DEV023",
+      "sender_school_name": "港湾大学",
+      "mapping_id": "synthetic-harbour-university-domain-v1"
+    },
+    {
+      "caseId": "DEV024",
+      "sender_school_name": "港湾大学",
+      "mapping_id": "synthetic-harbour-university-domain-v1"
+    },
+    {
+      "caseId": "DEV025",
+      "sender_school_name": "港湾大学",
+      "mapping_id": "synthetic-harbour-university-domain-v1"
+    }
+  ],
+  "snapshotHash": "sha256:522a63921129c78f2e797fff6b4f179954707e316cbcbe622d32589de3b77ff6"
+}

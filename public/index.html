@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#16333d" />
+    <meta name="description" content="使用合成学校邮件演示 AI 如何把通知转成可核对的行动卡。" />
+    <title>AI 留学管家 · 合成数据演示</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+
+    <div class="demo-ribbon" role="status" aria-label="演示环境说明">
+      <span class="demo-ribbon__dot" aria-hidden="true"></span>
+      <strong>合成数据演示</strong>
+      <span aria-hidden="true">·</span>
+      <span>未连接真实邮箱或日历</span>
+    </div>
+
+    <div id="app">
+      <main id="auth-view" class="auth-layout">
+        <section class="auth-story" aria-labelledby="auth-title">
+          <a class="wordmark" href="#" aria-label="AI 留学管家演示首页">
+            <span class="wordmark__mark" aria-hidden="true">AI</span>
+            <span>AI 留学管家</span>
+          </a>
+
+          <div class="auth-story__copy">
+            <p class="eyebrow">一封通知，一条行动路线</p>
+            <h1 id="auth-title">把学校邮件<br />变成下一步行动</h1>
+            <p class="auth-intro">
+              AI 从英文或繁体通知中找出与你有关的要求、截止时间和原文依据。你决定下一步，AI 不替你操作外部账户。
+            </p>
+          </div>
+
+          <ol class="route-preview" aria-label="邮件转为行动的三个步骤">
+            <li>
+              <span class="route-preview__node" aria-hidden="true"></span>
+              <span class="route-preview__label">结论</span>
+              <strong>需要你处理</strong>
+            </li>
+            <li>
+              <span class="route-preview__node" aria-hidden="true"></span>
+              <span class="route-preview__label">时间</span>
+              <strong>9 月 4 日 17:00</strong>
+            </li>
+            <li>
+              <span class="route-preview__node" aria-hidden="true"></span>
+              <span class="route-preview__label">下一步</span>
+              <strong>核对缴费状态</strong>
+            </li>
+          </ol>
+        </section>
+
+        <section class="invite-card" aria-labelledby="invite-heading">
+          <div>
+            <p class="eyebrow">Step 5 · 本地演示</p>
+            <h2 id="invite-heading">使用邀请码进入</h2>
+            <p class="invite-card__description">演示版只处理预置的合成邮件，不会要求你提交真实邮件或学生资料。</p>
+          </div>
+
+          <form id="invite-form" novalidate>
+            <label for="invite-code">邀请码</label>
+            <div class="code-field">
+              <input
+                id="invite-code"
+                name="inviteCode"
+                type="password"
+                inputmode="text"
+                autocomplete="off"
+                autocapitalize="characters"
+                spellcheck="false"
+                maxlength="96"
+                aria-describedby="invite-help invite-error"
+                required
+              />
+              <button id="toggle-code" class="field-action" type="button" aria-pressed="false">显示</button>
+            </div>
+            <p id="invite-help" class="field-help">邀请码仅用于进入这次演示。</p>
+            <p id="invite-error" class="form-error" role="alert"></p>
+            <button id="invite-submit" class="button button--primary button--wide" type="submit">验证邀请码</button>
+          </form>
+
+          <div class="privacy-note">
+            <span aria-hidden="true">◉</span>
+            <p><strong>演示边界</strong><br />无文件上传、无外部账户授权、无真实日历写入。</p>
+          </div>
+        </section>
+      </main>
+
+      <div id="workspace" class="workspace" hidden>
+        <header class="mobile-header">
+          <a class="wordmark wordmark--compact" href="#" data-view-link="actions">
+            <span class="wordmark__mark" aria-hidden="true">AI</span>
+            <span>留学管家</span>
+          </a>
+          <button class="icon-button" type="button" data-open-profile aria-label="打开演示账户信息">账户</button>
+        </header>
+
+        <div class="app-shell">
+          <aside class="sidebar" aria-label="主导航">
+            <a class="wordmark wordmark--sidebar" href="#" data-view-link="actions">
+              <span class="wordmark__mark" aria-hidden="true">AI</span>
+              <span>AI 留学管家</span>
+            </a>
+
+            <nav class="side-nav" aria-label="功能导航">
+              <button class="nav-item is-active" type="button" data-view="actions" aria-current="page">
+                <span class="nav-item__index">01</span><span>要处理</span>
+              </button>
+              <button class="nav-item" type="button" data-view="notifications">
+                <span class="nav-item__index">02</span><span>全部通知</span>
+              </button>
+              <button class="nav-item" type="button" data-view="guides">
+                <span class="nav-item__index">03</span><span>阶段指南</span>
+              </button>
+              <button class="nav-item" type="button" data-view="managed">
+                <span class="nav-item__index">04</span><span>已管理</span>
+              </button>
+            </nav>
+
+            <div class="sidebar__footer">
+              <div class="model-indicator" id="model-indicator">
+                <span class="model-indicator__light" aria-hidden="true"></span>
+                <span>检查 AI 状态…</span>
+              </div>
+              <button id="logout-button" class="text-button" type="button">退出演示</button>
+            </div>
+          </aside>
+
+          <main id="main-content" class="main-column" tabindex="-1">
+            <div id="app-live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+            <section id="view-actions" class="view-panel" data-view-panel="actions" aria-labelledby="actions-title">
+              <header class="page-header">
+                <div>
+                  <p class="eyebrow">行动中心</p>
+                  <h1 id="actions-title">先处理最重要的一件事</h1>
+                  <p id="actions-summary" class="page-summary">正在读取演示通知…</p>
+                </div>
+                <button id="analyze-next" class="button button--primary" type="button">让 AI 解析下一封</button>
+              </header>
+
+              <div class="filter-row" role="group" aria-label="筛选行动卡">
+                <button class="filter-chip is-active" type="button" data-filter="pending" aria-pressed="true">待管理</button>
+                <button class="filter-chip" type="button" data-filter="confirm" aria-pressed="false">请确认</button>
+                <button class="filter-chip" type="button" data-filter="all" aria-pressed="false">全部</button>
+              </div>
+
+              <div id="action-list" class="card-list" aria-busy="true"></div>
+            </section>
+
+            <section id="view-notifications" class="view-panel" data-view-panel="notifications" aria-labelledby="notifications-title" hidden>
+              <header class="page-header page-header--simple">
+                <div>
+                  <p class="eyebrow">合成收件箱</p>
+                  <h1 id="notifications-title">全部通知</h1>
+                  <p class="page-summary">这里没有真实邮件，也不会出现外部账户连接入口。</p>
+                </div>
+              </header>
+              <div id="notification-list" class="notification-list"></div>
+            </section>
+
+            <section id="view-guides" class="view-panel" data-view-panel="guides" aria-labelledby="guides-title" hidden>
+              <header class="page-header page-header--simple">
+                <div>
+                  <p class="eyebrow">按阶段出现</p>
+                  <h1 id="guides-title">香港生活指南</h1>
+                  <p class="page-summary">演示内容只提供核对路线；高影响事项始终以官方来源为准。</p>
+                </div>
+              </header>
+              <div id="stage-route" class="stage-route" aria-label="当前入学阶段"></div>
+              <div id="guide-list" class="guide-list"></div>
+            </section>
+
+            <section id="view-managed" class="view-panel" data-view-panel="managed" aria-labelledby="managed-title" hidden>
+              <header class="page-header page-header--simple">
+                <div>
+                  <p class="eyebrow">只代表已管理</p>
+                  <h1 id="managed-title">已管理事项</h1>
+                  <p class="page-summary">加入演示日历或在这里打勾，不代表学校手续已经完成。</p>
+                </div>
+              </header>
+              <div id="managed-list" class="card-list"></div>
+            </section>
+
+            <section id="view-profile" class="view-panel" data-view-panel="profile" aria-labelledby="profile-title" hidden>
+              <header class="page-header page-header--simple">
+                <div>
+                  <p class="eyebrow">演示账户</p>
+                  <h1 id="profile-title">当前画像</h1>
+                </div>
+              </header>
+              <div id="profile-content" class="profile-card"></div>
+              <button id="mobile-logout-button" class="button button--secondary button--wide" type="button">退出演示</button>
+            </section>
+          </main>
+
+          <aside id="evidence-panel" class="evidence-panel" aria-labelledby="evidence-heading">
+            <div class="evidence-panel__topbar">
+              <div>
+                <p class="eyebrow">可信依据</p>
+                <h2 id="evidence-heading">选择一张行动卡</h2>
+              </div>
+              <button id="close-evidence" class="icon-button evidence-panel__close" type="button" aria-label="关闭依据面板">关闭</button>
+            </div>
+
+            <div id="evidence-empty" class="panel-empty">
+              <span class="panel-empty__mark" aria-hidden="true">↗</span>
+              <p>打开一张通知，原文依据会在这里出现。</p>
+            </div>
+
+            <div id="evidence-content" hidden>
+              <div class="tab-list" role="tablist" aria-label="通知详情">
+                <button id="tab-evidence" class="tab is-active" type="button" role="tab" aria-selected="true" aria-controls="panel-evidence" data-detail-tab="evidence">依据</button>
+                <button id="tab-original" class="tab" type="button" role="tab" aria-selected="false" aria-controls="panel-original" data-detail-tab="original">原文</button>
+                <button id="tab-translation" class="tab" type="button" role="tab" aria-selected="false" aria-controls="panel-translation" data-detail-tab="translation">简体理解</button>
+              </div>
+
+              <div id="panel-evidence" class="tab-panel" role="tabpanel" aria-labelledby="tab-evidence"></div>
+              <div id="panel-original" class="tab-panel" role="tabpanel" aria-labelledby="tab-original" hidden></div>
+              <div id="panel-translation" class="tab-panel" role="tabpanel" aria-labelledby="tab-translation" hidden></div>
+
+              <section class="ask-section" aria-labelledby="ask-heading">
+                <div class="ask-section__heading">
+                  <p class="eyebrow">依附当前通知</p>
+                  <h3 id="ask-heading">通知追问</h3>
+                </div>
+                <p class="field-help">为避免误填真实资料，演示版只接受以下固定问题。</p>
+                <div id="ask-options" class="ask-options">
+                  <button type="button" data-question-template="what_to_do">我具体要做什么？</button>
+                  <button type="button" data-question-template="deadline_evidence">截止时间依据是什么？</button>
+                  <button type="button" data-question-template="what_is_uncertain">哪些地方还不确定？</button>
+                </div>
+                <div id="ask-answer" class="ask-answer" aria-live="polite"></div>
+              </section>
+            </div>
+          </aside>
+        </div>
+
+        <nav class="mobile-nav" aria-label="移动端功能导航">
+          <button class="is-active" type="button" data-view="actions" aria-current="page">要处理</button>
+          <button type="button" data-view="notifications">通知</button>
+          <button type="button" data-view="guides">指南</button>
+          <button type="button" data-view="profile">我的</button>
+        </nav>
+      </div>
+    </div>
+
+    <dialog id="calendar-dialog" class="calendar-dialog" aria-labelledby="calendar-title">
+      <div class="dialog-card">
+        <header class="dialog-header">
+          <div>
+            <p class="eyebrow">不会写入外部日历</p>
+            <h2 id="calendar-title">预览日历</h2>
+          </div>
+          <button id="close-calendar" class="icon-button" type="button" aria-label="关闭日历预览">关闭</button>
+        </header>
+
+        <div class="simulation-alert" role="note">
+          <strong>模拟操作</strong>
+          <span>确认后只改变当前页面状态，不会同步到任何真实日历。</span>
+        </div>
+
+        <div id="calendar-fields" class="calendar-fields" aria-live="polite"></div>
+        <div id="calendar-evidence" class="calendar-evidence"></div>
+        <p class="calendar-caveat">加入日历只代表你管理了这件事，不代表学校手续已经完成。</p>
+
+        <footer class="dialog-actions">
+          <button id="cancel-calendar" class="button button--secondary" type="button">返回</button>
+          <button id="simulate-calendar" class="button button--primary" type="button">模拟加入日历</button>
+        </footer>
+      </div>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+  </body>
+</html>

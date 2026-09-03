@@ -1,0 +1,1270 @@
+{
+  "snapshotVersion": "phase2-development-model-input-snapshot-v1",
+  "datasetSplit": "development",
+  "projectionVersion": "phase2-core-model-input-projection-v1",
+  "caseIds": [
+    "DEV001",
+    "DEV003",
+    "DEV004",
+    "DEV005",
+    "DEV006",
+    "DEV007",
+    "DEV008",
+    "DEV010",
+    "DEV017",
+    "DEV018",
+    "DEV019",
+    "DEV020",
+    "DEV022",
+    "DEV023",
+    "DEV024",
+    "DEV025"
+  ],
+  "cases": [
+    {
+      "caseId": "DEV001",
+      "modelInput": {
+        "task_type": "analyze_school_notification_core",
+        "target_language": "zh-Hans",
+        "candidate_schema_version": "notification-analysis-core-candidate-p1-v2",
+        "message": {
+          "subject": "COMP7101 Assignment 1 deadline",
+          "language": "en",
+          "body": "COMP7101 students must submit Assignment 1 through https://learn.harbour.invalid/comp7101 by 5:00 pm HKT on 31 August 2026. Late submissions receive zero marks unless an approved extension exists."
+        },
+        "profile_refs": [
+          {
+            "profile_field_id": "pf-dev001-school",
+            "field_type": "school",
+            "value": "港湾大学"
+          },
+          {
+            "profile_field_id": "pf-dev001-project",
+            "field_type": "programme",
+            "value": "MSc Computing"
+          },
+          {
+            "profile_field_id": "pf-dev001-cohort",
+            "field_type": "cohort",
+            "value": "2026"
+          },
+          {
+            "profile_field_id": "pf-dev001-term",
+            "field_type": "term",
+            "value": "2026 Fall"
+          },
+          {
+            "profile_field_id": "pf-dev001-course-comp7101",
+            "field_type": "course",
+            "value": "COMP7101 | Applied Computing | aliases: AC"
+          }
+        ]
+      },
+      "trustedProfileEvidence": [
+        {
+          "profile_field_id": "pf-dev001-school",
+          "field_type": "school",
+          "value": "港湾大学",
+          "source": "synthetic_invite_profile",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev001-project",
+          "field_type": "programme",
+          "value": "MSc Computing",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev001-cohort",
+          "field_type": "cohort",
+          "value": "2026",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev001-term",
+          "field_type": "term",
+          "value": "2026 Fall",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-12-31"
+        },
+        {
+          "profile_field_id": "pf-dev001-course-comp7101",
+          "field_type": "course",
+          "value": "COMP7101 | Applied Computing | aliases: AC",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-12-31",
+          "course_status": "confirmed"
+        }
+      ],
+      "modelInputHash": "sha256:707712b74bf7c631554179fd949ed0892987b89bba543e483f71258a7b0cbc82",
+      "caseHash": "sha256:2678aacab479b59a6e2f24e24fd2426c975908a7a1322833b9f9548764886208"
+    },
+    {
+      "caseId": "DEV003",
+      "modelInput": {
+        "task_type": "analyze_school_notification_core",
+        "target_language": "zh-Hans",
+        "candidate_schema_version": "notification-analysis-core-candidate-p1-v2",
+        "message": {
+          "subject": "2026 秋季第一期學費通知",
+          "language": "zh-Hant",
+          "body": "所有 2026 年秋季入學的授課式研究生必須於 2026 年 9 月 3 日下午 5 時前繳交港幣 42,000 元第一期學費。逾期未繳將取消註冊資格。請只透過 https://pay.harbour.invalid/tuition 辦理。"
+        },
+        "profile_refs": [
+          {
+            "profile_field_id": "pf-dev003-school",
+            "field_type": "school",
+            "value": "港湾大学"
+          },
+          {
+            "profile_field_id": "pf-dev003-project",
+            "field_type": "programme",
+            "value": "MSc Urban Analytics"
+          },
+          {
+            "profile_field_id": "pf-dev003-cohort",
+            "field_type": "cohort",
+            "value": "2026"
+          },
+          {
+            "profile_field_id": "pf-dev003-term",
+            "field_type": "term",
+            "value": "2026 Fall"
+          }
+        ]
+      },
+      "trustedProfileEvidence": [
+        {
+          "profile_field_id": "pf-dev003-school",
+          "field_type": "school",
+          "value": "港湾大学",
+          "source": "synthetic_invite_profile",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev003-project",
+          "field_type": "programme",
+          "value": "MSc Urban Analytics",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev003-cohort",
+          "field_type": "cohort",
+          "value": "2026",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev003-term",
+          "field_type": "term",
+          "value": "2026 Fall",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-12-31"
+        }
+      ],
+      "modelInputHash": "sha256:2a03da1fa08c00677042b7c7603666dd040b0ec88eb5e3544b1857522c577f0e",
+      "caseHash": "sha256:b25cd1c65ec0d977521d78496fa505da88dc311e310e77ea72fb55477250e4db"
+    },
+    {
+      "caseId": "DEV004",
+      "modelInput": {
+        "task_type": "analyze_school_notification_core",
+        "target_language": "zh-Hans",
+        "candidate_schema_version": "notification-analysis-core-candidate-p1-v2",
+        "message": {
+          "subject": "2026 秋季第一期學費通知",
+          "language": "zh-Hant",
+          "body": "所有 2026 年秋季入學的授課式研究生必須於 2026 年 9 月 3 日下午 5 時前繳交港幣 42,000 元第一期學費。逾期未繳將取消註冊資格。請只透過 https://pay.harbour.invalid/tuition 辦理。"
+        },
+        "profile_refs": [
+          {
+            "profile_field_id": "pf-dev004-school",
+            "field_type": "school",
+            "value": "港湾大学"
+          },
+          {
+            "profile_field_id": "pf-dev004-project",
+            "field_type": "programme",
+            "value": "MSc Urban Analytics"
+          },
+          {
+            "profile_field_id": "pf-dev004-cohort",
+            "field_type": "cohort",
+            "value": "2025"
+          },
+          {
+            "profile_field_id": "pf-dev004-term",
+            "field_type": "term",
+            "value": "2026 Summer"
+          }
+        ]
+      },
+      "trustedProfileEvidence": [
+        {
+          "profile_field_id": "pf-dev004-school",
+          "field_type": "school",
+          "value": "港湾大学",
+          "source": "synthetic_invite_profile",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev004-project",
+          "field_type": "programme",
+          "value": "MSc Urban Analytics",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev004-cohort",
+          "field_type": "cohort",
+          "value": "2025",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev004-term",
+          "field_type": "term",
+          "value": "2026 Summer",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-08-31"
+        }
+      ],
+      "modelInputHash": "sha256:53a1c9e466787b7e65f06acdbebc9d3dede1b02fdd82e60c4f018c8a4323af46",
+      "caseHash": "sha256:4264644a225e2fd56ac782c1792fed4aa1f8a2ca98b3df5c84e440868a00cea3"
+    },
+    {
+      "caseId": "DEV005",
+      "modelInput": {
+        "task_type": "analyze_school_notification_core",
+        "target_language": "zh-Hans",
+        "candidate_schema_version": "notification-analysis-core-candidate-p1-v2",
+        "message": {
+          "subject": "！海岸清潔日自願報名",
+          "language": "zh-Hant",
+          "body": "全校學生可自願報名參加 2026 年 9 月 12 日上午 9 時的海岸清潔日；不參加不會影響任何資格。報名可於 9 月 8 日前透過 https://events.harbour.invalid/coast 完成。"
+        },
+        "profile_refs": [
+          {
+            "profile_field_id": "pf-dev005-school",
+            "field_type": "school",
+            "value": "港湾大学"
+          },
+          {
+            "profile_field_id": "pf-dev005-project",
+            "field_type": "programme",
+            "value": "MSc Marine Policy"
+          },
+          {
+            "profile_field_id": "pf-dev005-cohort",
+            "field_type": "cohort",
+            "value": "2026"
+          },
+          {
+            "profile_field_id": "pf-dev005-term",
+            "field_type": "term",
+            "value": "2026 Fall"
+          }
+        ]
+      },
+      "trustedProfileEvidence": [
+        {
+          "profile_field_id": "pf-dev005-school",
+          "field_type": "school",
+          "value": "港湾大学",
+          "source": "synthetic_invite_profile",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev005-project",
+          "field_type": "programme",
+          "value": "MSc Marine Policy",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev005-cohort",
+          "field_type": "cohort",
+          "value": "2026",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev005-term",
+          "field_type": "term",
+          "value": "2026 Fall",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-12-31"
+        }
+      ],
+      "modelInputHash": "sha256:6ce36323ede19e5246538454ccda781a5a8fb742adc9e6caab2257dc8686dd07",
+      "caseHash": "sha256:6bb728fb11ade0e7da108750bdb3d0cf0dd19ccf5481086575d3af7a43d960dd"
+    },
+    {
+      "caseId": "DEV006",
+      "modelInput": {
+        "task_type": "analyze_school_notification_core",
+        "target_language": "zh-Hans",
+        "candidate_schema_version": "notification-analysis-core-candidate-p1-v2",
+        "message": {
+          "subject": "！海岸清潔日自願報名",
+          "language": "zh-Hant",
+          "body": "全校學生可自願報名參加 2026 年 9 月 12 日上午 9 時的海岸清潔日；不參加不會影響任何資格。報名可於 9 月 8 日前透過 https://events.harbour.invalid/coast 完成。"
+        },
+        "profile_refs": [
+          {
+            "profile_field_id": "pf-dev006-school",
+            "field_type": "school",
+            "value": "维港科技学院"
+          },
+          {
+            "profile_field_id": "pf-dev006-project",
+            "field_type": "programme",
+            "value": "MSc Design Engineering"
+          },
+          {
+            "profile_field_id": "pf-dev006-cohort",
+            "field_type": "cohort",
+            "value": "2026"
+          },
+          {
+            "profile_field_id": "pf-dev006-term",
+            "field_type": "term",
+            "value": "2026 Fall"
+          }
+        ]
+      },
+      "trustedProfileEvidence": [
+        {
+          "profile_field_id": "pf-dev006-school",
+          "field_type": "school",
+          "value": "维港科技学院",
+          "source": "synthetic_invite_profile",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev006-project",
+          "field_type": "programme",
+          "value": "MSc Design Engineering",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev006-cohort",
+          "field_type": "cohort",
+          "value": "2026",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev006-term",
+          "field_type": "term",
+          "value": "2026 Fall",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-12-31"
+        }
+      ],
+      "modelInputHash": "sha256:c6fb058e5a54cf30304fc8c9a6c06b0193a27a2211ca6a09c30353844ce0504a",
+      "caseHash": "sha256:94255f74b0fd5127d0fc8d675abdd38372f8d9614f4ff185cc25fe604f384bcf"
+    },
+    {
+      "caseId": "DEV007",
+      "modelInput": {
+        "task_type": "analyze_school_notification_core",
+        "target_language": "zh-Hans",
+        "candidate_schema_version": "notification-analysis-core-candidate-p1-v2",
+        "message": {
+          "subject": "Block A shared kitchen cleaning / 共享廚房清潔",
+          "language": "mixed",
+          "body": "Harbour Hall Block A 共享廚房將於 2026 年 9 月 2 日 09:00–12:00 進行例行清潔。Residents may use the kitchen in Block B during this period. No action is required."
+        },
+        "profile_refs": [
+          {
+            "profile_field_id": "pf-dev007-school",
+            "field_type": "school",
+            "value": "港湾大学"
+          },
+          {
+            "profile_field_id": "pf-dev007-project",
+            "field_type": "programme",
+            "value": "MSc Public Policy"
+          },
+          {
+            "profile_field_id": "pf-dev007-cohort",
+            "field_type": "cohort",
+            "value": "2026"
+          },
+          {
+            "profile_field_id": "pf-dev007-term",
+            "field_type": "term",
+            "value": "2026 Fall"
+          },
+          {
+            "profile_field_id": "pf-dev007-residence",
+            "field_type": "residence",
+            "value": "Harbour Hall Block A"
+          }
+        ]
+      },
+      "trustedProfileEvidence": [
+        {
+          "profile_field_id": "pf-dev007-school",
+          "field_type": "school",
+          "value": "港湾大学",
+          "source": "synthetic_invite_profile",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev007-project",
+          "field_type": "programme",
+          "value": "MSc Public Policy",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev007-cohort",
+          "field_type": "cohort",
+          "value": "2026",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev007-term",
+          "field_type": "term",
+          "value": "2026 Fall",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-12-31"
+        },
+        {
+          "profile_field_id": "pf-dev007-residence",
+          "field_type": "residence",
+          "value": "Harbour Hall Block A",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-06-30"
+        }
+      ],
+      "modelInputHash": "sha256:5cc67a38495bc15e8b6ab8999a3c956c29c46ec85cba6d0883e976cc34b51036",
+      "caseHash": "sha256:1d61fa2021f9d481f33b371d8d50066c51fd8d752479667d30ae001cd57c09f4"
+    },
+    {
+      "caseId": "DEV008",
+      "modelInput": {
+        "task_type": "analyze_school_notification_core",
+        "target_language": "zh-Hans",
+        "candidate_schema_version": "notification-analysis-core-candidate-p1-v2",
+        "message": {
+          "subject": "Block A shared kitchen cleaning / 共享廚房清潔",
+          "language": "mixed",
+          "body": "Harbour Hall Block A 共享廚房將於 2026 年 9 月 2 日 09:00–12:00 進行例行清潔。Residents may use the kitchen in Block B during this period. No action is required."
+        },
+        "profile_refs": [
+          {
+            "profile_field_id": "pf-dev008-school",
+            "field_type": "school",
+            "value": "港湾大学"
+          },
+          {
+            "profile_field_id": "pf-dev008-project",
+            "field_type": "programme",
+            "value": "MSc Public Policy"
+          },
+          {
+            "profile_field_id": "pf-dev008-cohort",
+            "field_type": "cohort",
+            "value": "2026"
+          },
+          {
+            "profile_field_id": "pf-dev008-term",
+            "field_type": "term",
+            "value": "2026 Fall"
+          },
+          {
+            "profile_field_id": "pf-dev008-residence",
+            "field_type": "residence",
+            "value": "off-campus"
+          }
+        ]
+      },
+      "trustedProfileEvidence": [
+        {
+          "profile_field_id": "pf-dev008-school",
+          "field_type": "school",
+          "value": "港湾大学",
+          "source": "synthetic_invite_profile",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev008-project",
+          "field_type": "programme",
+          "value": "MSc Public Policy",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev008-cohort",
+          "field_type": "cohort",
+          "value": "2026",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev008-term",
+          "field_type": "term",
+          "value": "2026 Fall",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-12-31"
+        },
+        {
+          "profile_field_id": "pf-dev008-residence",
+          "field_type": "residence",
+          "value": "off-campus",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-06-30"
+        }
+      ],
+      "modelInputHash": "sha256:240923be8ef46a50756853f50570ff842356c6e3a65153d94c6f1fc7e266698a",
+      "caseHash": "sha256:c4b868aeefa7aa92adf4efcf20e01e02daa57e5c7a95fd1f9d03bed18c22a830"
+    },
+    {
+      "caseId": "DEV010",
+      "modelInput": {
+        "task_type": "analyze_school_notification_core",
+        "target_language": "zh-Hans",
+        "candidate_schema_version": "notification-analysis-core-candidate-p1-v2",
+        "message": {
+          "subject": "COMP7200 mandatory laboratory induction",
+          "language": "en",
+          "body": "Students enrolled in COMP7200 must register for the laboratory induction at https://labs.harbour.invalid/induction by 12:00 noon HKT on 1 September 2026. Students who do not complete the induction cannot access the secure data laboratory."
+        },
+        "profile_refs": [
+          {
+            "profile_field_id": "pf-dev010-school",
+            "field_type": "school",
+            "value": "港湾大学"
+          },
+          {
+            "profile_field_id": "pf-dev010-project",
+            "field_type": "programme",
+            "value": "MSc Data Engineering"
+          },
+          {
+            "profile_field_id": "pf-dev010-cohort",
+            "field_type": "cohort",
+            "value": "2026"
+          },
+          {
+            "profile_field_id": "pf-dev010-term",
+            "field_type": "term",
+            "value": "2026 Fall"
+          },
+          {
+            "profile_field_id": "pf-dev010-course-comp7200",
+            "field_type": "course",
+            "value": "COMP7200 | Secure Data Lab | aliases: SDL"
+          }
+        ]
+      },
+      "trustedProfileEvidence": [
+        {
+          "profile_field_id": "pf-dev010-school",
+          "field_type": "school",
+          "value": "港湾大学",
+          "source": "synthetic_invite_profile",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev010-project",
+          "field_type": "programme",
+          "value": "MSc Data Engineering",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev010-cohort",
+          "field_type": "cohort",
+          "value": "2026",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev010-term",
+          "field_type": "term",
+          "value": "2026 Fall",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-12-31"
+        },
+        {
+          "profile_field_id": "pf-dev010-course-comp7200",
+          "field_type": "course",
+          "value": "COMP7200 | Secure Data Lab | aliases: SDL",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-12-31",
+          "course_status": "confirmed"
+        }
+      ],
+      "modelInputHash": "sha256:70662fbcdca6e9cc595b618f9726aa2aeef512afc179af3c8737d53424cba7e4",
+      "caseHash": "sha256:ac0581d931d67845969476c4c7f1c73a3dd3a415dee2e476ebbe109a4b7aef62"
+    },
+    {
+      "caseId": "DEV017",
+      "modelInput": {
+        "task_type": "analyze_school_notification_core",
+        "target_language": "zh-Hans",
+        "candidate_schema_version": "notification-analysis-core-candidate-p1-v2",
+        "message": {
+          "subject": "Mandatory thesis ethics briefing",
+          "language": "en",
+          "body": "All confirmed COMP7400 students must attend the thesis ethics briefing in Room C201 at 10:00 am HKT on 30 August 2026. Check-in closes at 10:00 am. Absence without an approved exemption will delay thesis topic approval."
+        },
+        "profile_refs": [
+          {
+            "profile_field_id": "pf-dev017-school",
+            "field_type": "school",
+            "value": "港湾大学"
+          },
+          {
+            "profile_field_id": "pf-dev017-project",
+            "field_type": "programme",
+            "value": "MSc Computing"
+          },
+          {
+            "profile_field_id": "pf-dev017-cohort",
+            "field_type": "cohort",
+            "value": "2026"
+          },
+          {
+            "profile_field_id": "pf-dev017-term",
+            "field_type": "term",
+            "value": "2026 Fall"
+          },
+          {
+            "profile_field_id": "pf-dev017-course-comp7400",
+            "field_type": "course",
+            "value": "COMP7400 | Thesis Studio"
+          }
+        ]
+      },
+      "trustedProfileEvidence": [
+        {
+          "profile_field_id": "pf-dev017-school",
+          "field_type": "school",
+          "value": "港湾大学",
+          "source": "synthetic_invite_profile",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev017-project",
+          "field_type": "programme",
+          "value": "MSc Computing",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev017-cohort",
+          "field_type": "cohort",
+          "value": "2026",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev017-term",
+          "field_type": "term",
+          "value": "2026 Fall",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-12-31"
+        },
+        {
+          "profile_field_id": "pf-dev017-course-comp7400",
+          "field_type": "course",
+          "value": "COMP7400 | Thesis Studio",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-12-31",
+          "course_status": "confirmed"
+        }
+      ],
+      "modelInputHash": "sha256:e816747ca3ad5acedc98912a9b45136affb6e1fc25b83abebda494aa44b92b42",
+      "caseHash": "sha256:c16cf5e11a6031e7457f490544edf3ff8b661d8b37ef2abbbacaa6116c237c5b"
+    },
+    {
+      "caseId": "DEV018",
+      "modelInput": {
+        "task_type": "analyze_school_notification_core",
+        "target_language": "zh-Hans",
+        "candidate_schema_version": "notification-analysis-core-candidate-p1-v2",
+        "message": {
+          "subject": "Optional MSc Computing research talk",
+          "language": "en",
+          "body": "MSc Computing students are invited to a research talk on trustworthy agents at 4:00 pm HKT on 10 September 2026 in Lecture Hall L2. Attendance is optional, and no response is required."
+        },
+        "profile_refs": [
+          {
+            "profile_field_id": "pf-dev018-school",
+            "field_type": "school",
+            "value": "港湾大学"
+          },
+          {
+            "profile_field_id": "pf-dev018-project",
+            "field_type": "programme",
+            "value": "MSc Computing"
+          },
+          {
+            "profile_field_id": "pf-dev018-cohort",
+            "field_type": "cohort",
+            "value": "2026"
+          },
+          {
+            "profile_field_id": "pf-dev018-term",
+            "field_type": "term",
+            "value": "2026 Fall"
+          }
+        ]
+      },
+      "trustedProfileEvidence": [
+        {
+          "profile_field_id": "pf-dev018-school",
+          "field_type": "school",
+          "value": "港湾大学",
+          "source": "synthetic_invite_profile",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev018-project",
+          "field_type": "programme",
+          "value": "MSc Computing",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev018-cohort",
+          "field_type": "cohort",
+          "value": "2026",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev018-term",
+          "field_type": "term",
+          "value": "2026 Fall",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-12-31"
+        }
+      ],
+      "modelInputHash": "sha256:8f3e7daff2fe62d445ebdc8bb645aa51df9c5c30520d5fa1873fc71ffa86e6f2",
+      "caseHash": "sha256:bdc4f185752623213911c2f2c7ca08c4baa97e296789b206cef821faaff6e70d"
+    },
+    {
+      "caseId": "DEV019",
+      "modelInput": {
+        "task_type": "analyze_school_notification_core",
+        "target_language": "zh-Hans",
+        "candidate_schema_version": "notification-analysis-core-candidate-p1-v2",
+        "message": {
+          "subject": "須上載學生電子簽證副本",
+          "language": "zh-Hant",
+          "body": "已獲發學生電子簽證的 2026 屆新生必須於 2026 年 9 月 2 日下午 4 時前，透過 https://registry.harbour.invalid/visa-record 上載電子簽證副本。未按時提交將暫停學籍註冊。"
+        },
+        "profile_refs": [
+          {
+            "profile_field_id": "pf-dev019-school",
+            "field_type": "school",
+            "value": "港湾大学"
+          },
+          {
+            "profile_field_id": "pf-dev019-project",
+            "field_type": "programme",
+            "value": "MSc Applied Statistics"
+          },
+          {
+            "profile_field_id": "pf-dev019-cohort",
+            "field_type": "cohort",
+            "value": "2026"
+          },
+          {
+            "profile_field_id": "pf-dev019-term",
+            "field_type": "term",
+            "value": "2026 Fall"
+          },
+          {
+            "profile_field_id": "pf-dev019-visa",
+            "field_type": "immigration_status",
+            "value": "student_evisa_issued"
+          }
+        ]
+      },
+      "trustedProfileEvidence": [
+        {
+          "profile_field_id": "pf-dev019-school",
+          "field_type": "school",
+          "value": "港湾大学",
+          "source": "synthetic_invite_profile",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev019-project",
+          "field_type": "programme",
+          "value": "MSc Applied Statistics",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev019-cohort",
+          "field_type": "cohort",
+          "value": "2026",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev019-term",
+          "field_type": "term",
+          "value": "2026 Fall",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-12-31"
+        },
+        {
+          "profile_field_id": "pf-dev019-visa",
+          "field_type": "immigration_status",
+          "value": "student_evisa_issued",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-07-31"
+        }
+      ],
+      "modelInputHash": "sha256:08a0d8eb603f187e79ee37d32e4f86e8e07431069c3b519cae767911a69a8aea",
+      "caseHash": "sha256:169b172934e460e61bfa61c379d493b6076a38089db4eb0f2e93fbbeb02cf8ea"
+    },
+    {
+      "caseId": "DEV020",
+      "modelInput": {
+        "task_type": "analyze_school_notification_core",
+        "target_language": "zh-Hans",
+        "candidate_schema_version": "notification-analysis-core-candidate-p1-v2",
+        "message": {
+          "subject": "Academic Integrity Declaration required",
+          "language": "en",
+          "body": "All new postgraduate students must submit the Academic Integrity Declaration at https://integrityforms.invalid/harbour/declaration by 6:00 pm HKT on 30 August 2026. Without a submitted declaration, students are not eligible to sit examinations."
+        },
+        "profile_refs": [
+          {
+            "profile_field_id": "pf-dev020-school",
+            "field_type": "school",
+            "value": "港湾大学"
+          },
+          {
+            "profile_field_id": "pf-dev020-project",
+            "field_type": "programme",
+            "value": "MSc Quantitative Finance"
+          },
+          {
+            "profile_field_id": "pf-dev020-cohort",
+            "field_type": "cohort",
+            "value": "2026"
+          },
+          {
+            "profile_field_id": "pf-dev020-term",
+            "field_type": "term",
+            "value": "2026 Fall"
+          }
+        ]
+      },
+      "trustedProfileEvidence": [
+        {
+          "profile_field_id": "pf-dev020-school",
+          "field_type": "school",
+          "value": "港湾大学",
+          "source": "synthetic_invite_profile",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev020-project",
+          "field_type": "programme",
+          "value": "MSc Quantitative Finance",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev020-cohort",
+          "field_type": "cohort",
+          "value": "2026",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev020-term",
+          "field_type": "term",
+          "value": "2026 Fall",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-12-31"
+        }
+      ],
+      "modelInputHash": "sha256:b4fccd4a1d9acedcd4fd99b5b8d714b3bc345a327e5cd20635cbff6b91d881e3",
+      "caseHash": "sha256:843bc19a7adbfe7269b8ca6315b5d6216bee3684f9d979127415363ac0446bf1"
+    },
+    {
+      "caseId": "DEV022",
+      "modelInput": {
+        "task_type": "analyze_school_notification_core",
+        "target_language": "zh-Hans",
+        "candidate_schema_version": "notification-analysis-core-candidate-p1-v2",
+        "message": {
+          "subject": "下週學生餐廳素食餐單",
+          "language": "zh-Hant",
+          "body": "學生餐廳下週將供應三款新的素食午餐選擇。餐單僅供參考，學生毋須回覆或登記。"
+        },
+        "profile_refs": [
+          {
+            "profile_field_id": "pf-dev022-school",
+            "field_type": "school",
+            "value": "港湾大学"
+          },
+          {
+            "profile_field_id": "pf-dev022-project",
+            "field_type": "programme",
+            "value": "MSc Public Policy"
+          },
+          {
+            "profile_field_id": "pf-dev022-cohort",
+            "field_type": "cohort",
+            "value": "2026"
+          },
+          {
+            "profile_field_id": "pf-dev022-term",
+            "field_type": "term",
+            "value": "2026 Fall"
+          }
+        ]
+      },
+      "trustedProfileEvidence": [
+        {
+          "profile_field_id": "pf-dev022-school",
+          "field_type": "school",
+          "value": "港湾大学",
+          "source": "synthetic_invite_profile",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev022-project",
+          "field_type": "programme",
+          "value": "MSc Public Policy",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev022-cohort",
+          "field_type": "cohort",
+          "value": "2026",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev022-term",
+          "field_type": "term",
+          "value": "2026 Fall",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-12-31"
+        }
+      ],
+      "modelInputHash": "sha256:6c1fd60453f794f9496040a8c4b5c0ff62e4fff14eace73661d9973e08fb1159",
+      "caseHash": "sha256:067c70c3af612d4f8a150d574c0b5a8f952557130dbe0debe33b1d3783b84e97"
+    },
+    {
+      "caseId": "DEV023",
+      "modelInput": {
+        "task_type": "analyze_school_notification_core",
+        "target_language": "zh-Hans",
+        "candidate_schema_version": "notification-analysis-core-candidate-p1-v2",
+        "message": {
+          "subject": "MAIS-26 capstone stream confirmation",
+          "language": "en",
+          "body": "All MAIS-26 students must confirm their capstone stream at https://programmes.harbour.invalid/mais/capstone by 5:00 pm HKT on 2 September 2026. Students who do not confirm will be allocated after preferences close."
+        },
+        "profile_refs": [
+          {
+            "profile_field_id": "pf-dev023-school",
+            "field_type": "school",
+            "value": "港湾大学"
+          },
+          {
+            "profile_field_id": "pf-dev023-project",
+            "field_type": "programme",
+            "value": "Master of Science in Artificial Intelligence Systems | aliases: MAIS, MSc AI Systems"
+          },
+          {
+            "profile_field_id": "pf-dev023-cohort",
+            "field_type": "cohort",
+            "value": "2026"
+          },
+          {
+            "profile_field_id": "pf-dev023-term",
+            "field_type": "term",
+            "value": "2026 Fall"
+          }
+        ]
+      },
+      "trustedProfileEvidence": [
+        {
+          "profile_field_id": "pf-dev023-school",
+          "field_type": "school",
+          "value": "港湾大学",
+          "source": "synthetic_invite_profile",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev023-project",
+          "field_type": "programme",
+          "value": "Master of Science in Artificial Intelligence Systems | aliases: MAIS, MSc AI Systems",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev023-cohort",
+          "field_type": "cohort",
+          "value": "2026",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev023-term",
+          "field_type": "term",
+          "value": "2026 Fall",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-12-31"
+        }
+      ],
+      "modelInputHash": "sha256:5d3dd991bf3fced656a7aa4cc365d678c099844345e422c6a41059a20e6bcf0c",
+      "caseHash": "sha256:758d80502372dc46c3af1ae0e865efbf640e14e59e8e7871ecd08217c1831c47"
+    },
+    {
+      "caseId": "DEV024",
+      "modelInput": {
+        "task_type": "analyze_school_notification_core",
+        "target_language": "zh-Hans",
+        "candidate_schema_version": "notification-analysis-core-candidate-p1-v2",
+        "message": {
+          "subject": "Photo upload for all taught postgraduate students",
+          "language": "en",
+          "body": "All taught postgraduate students must upload a student card photo at https://cards.harbour.invalid/photo by 3:00 pm HKT on 2 September 2026. Students without an accepted photo cannot collect their student card during registration."
+        },
+        "profile_refs": [
+          {
+            "profile_field_id": "pf-dev024-school",
+            "field_type": "school",
+            "value": "港湾大学"
+          },
+          {
+            "profile_field_id": "pf-dev024-project",
+            "field_type": "programme",
+            "value": "MSc Financial Technology"
+          },
+          {
+            "profile_field_id": "pf-dev024-cohort",
+            "field_type": "cohort",
+            "value": "2026"
+          },
+          {
+            "profile_field_id": "pf-dev024-term",
+            "field_type": "term",
+            "value": "2026 Fall"
+          },
+          {
+            "profile_field_id": "pf-dev024-category",
+            "field_type": "student_category",
+            "value": "postgraduate_taught"
+          }
+        ]
+      },
+      "trustedProfileEvidence": [
+        {
+          "profile_field_id": "pf-dev024-school",
+          "field_type": "school",
+          "value": "港湾大学",
+          "source": "synthetic_invite_profile",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev024-project",
+          "field_type": "programme",
+          "value": "MSc Financial Technology",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev024-cohort",
+          "field_type": "cohort",
+          "value": "2026",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev024-term",
+          "field_type": "term",
+          "value": "2026 Fall",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-12-31"
+        },
+        {
+          "profile_field_id": "pf-dev024-category",
+          "field_type": "student_category",
+          "value": "postgraduate_taught",
+          "source": "synthetic_invite_profile",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        }
+      ],
+      "modelInputHash": "sha256:162f538c55a78d05bdf6348eb87c047434e9e46ed0a3e339f2aa164fc051f881",
+      "caseHash": "sha256:038b360e5683b6199fb47af04634c6049bbf1f34c42b335ef55a4827f7aeb212"
+    },
+    {
+      "caseId": "DEV025",
+      "modelInput": {
+        "task_type": "analyze_school_notification_core",
+        "target_language": "zh-Hans",
+        "candidate_schema_version": "notification-analysis-core-candidate-p1-v2",
+        "message": {
+          "subject": "COMP7100 机器学习高级实验室参观",
+          "language": "zh-Hans",
+          "body": "COMP7100 Machine Learning 学生可自愿参加 2026 年 9 月 6 日下午 2 时的高级实验室参观，无需登记。不参加不会影响课程成绩。"
+        },
+        "profile_refs": [
+          {
+            "profile_field_id": "pf-dev025-school",
+            "field_type": "school",
+            "value": "港湾大学"
+          },
+          {
+            "profile_field_id": "pf-dev025-project",
+            "field_type": "programme",
+            "value": "MSc Computing"
+          },
+          {
+            "profile_field_id": "pf-dev025-cohort",
+            "field_type": "cohort",
+            "value": "2026"
+          },
+          {
+            "profile_field_id": "pf-dev025-term",
+            "field_type": "term",
+            "value": "2026 Fall"
+          },
+          {
+            "profile_field_id": "pf-dev025-course-comp7110",
+            "field_type": "course",
+            "value": "COMP7110 | Machine Learning Systems | aliases: ML Systems"
+          }
+        ]
+      },
+      "trustedProfileEvidence": [
+        {
+          "profile_field_id": "pf-dev025-school",
+          "field_type": "school",
+          "value": "港湾大学",
+          "source": "synthetic_invite_profile",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev025-project",
+          "field_type": "programme",
+          "value": "MSc Computing",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev025-cohort",
+          "field_type": "cohort",
+          "value": "2026",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2027-08-31"
+        },
+        {
+          "profile_field_id": "pf-dev025-term",
+          "field_type": "term",
+          "value": "2026 Fall",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-12-31"
+        },
+        {
+          "profile_field_id": "pf-dev025-course-comp7110",
+          "field_type": "course",
+          "value": "COMP7110 | Machine Learning Systems | aliases: ML Systems",
+          "source": "synthetic_user_confirmed",
+          "confirmation_status": "confirmed",
+          "valid_until": "2026-12-31",
+          "course_status": "confirmed"
+        }
+      ],
+      "modelInputHash": "sha256:9f51599cce92c0b8d3011942f0f19a7f2d20b6cd8a4e0413c0fc86d4c4a28a59",
+      "caseHash": "sha256:4565b43c9f808fe287c84989bc3b96ea447bf5898e498834f056168bf0436734"
+    }
+  ],
+  "snapshotHash": "sha256:23a8e2b1cc68084d9d6e934c041f8390c1339f6e775159e8bc11e165a09c97ff"
+}

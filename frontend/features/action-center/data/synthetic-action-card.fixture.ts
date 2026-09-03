@@ -1,0 +1,312 @@
+import type { ActionCardViewModelInput } from "../model/action-card-view-model";
+
+export const syntheticActionCardFixture = {
+  contractVersion: "action-card-view-model/v0.1",
+  synthetic: true,
+  notification: {
+    id: "synthetic-notification-001",
+    schoolName: "维港都会大学（合成）",
+    senderName: "合成课程办公室",
+    senderAddress: "programme-office@harbour-metropolitan.invalid",
+    subject: "DATA6102 seminar room update for 3 September (HKT)",
+    sentAt: "2026-08-28T09:10:00+08:00",
+    receivedAt: "2026-08-28T09:10:04+08:00",
+    language: "en",
+  },
+  provenance: {
+    sourceMode: "synthetic_mock",
+    harnessVerified: false,
+    analyzedAt: null,
+    disclosure: "这是前端工程夹具，未调用 DeepSeek，也不代表模型或 Harness 的真实输出。",
+  },
+  homeSection: "priority_reading",
+  homeSectionExplanation:
+    "它与你已确认的合成课程直接相关，且上课地点发生关键变更；邮件没有要求回复，所以不属于“要处理”。",
+  homeSectionClaimRefs: [
+    "claim-applicability-001",
+    "claim-update-001",
+    "claim-no-action-001",
+  ],
+  nativeImportanceSignals: [
+    {
+      kind: "sender_importance",
+      state: "absent",
+      protection: "not_applicable",
+    },
+    {
+      kind: "provider_importance",
+      state: "absent",
+      protection: "not_applicable",
+    },
+    {
+      kind: "user_star",
+      state: "absent",
+      protection: "not_applicable",
+    },
+  ],
+  title: "DATA6102 研讨课教室已调整",
+  titleClaimRefs: ["claim-update-001"],
+  summary:
+    "9 月 3 日周四 18:30 的 DATA6102 研讨课将从 A201 调整到 B405；邮件未要求回复或提交材料。",
+  summaryClaimRefs: [
+    "claim-summary-001",
+    "claim-date-001",
+    "claim-no-action-001",
+  ],
+  topics: ["academic_course"],
+  relevance: {
+    scope: "confirmed_course",
+    factState: "confirmed",
+    explanation: "邮件课程代码与合成画像中已确认的 DATA6102 完全匹配。",
+    basis: [
+      {
+        id: "basis-profile-course-001",
+        kind: "profile_field",
+        label: "合成画像：已确认课程 DATA6102",
+        profileState: "confirmed",
+        claimRefs: ["claim-applicability-001"],
+      },
+      {
+        id: "basis-mail-audience-001",
+        kind: "mail_audience",
+        label: "邮件正文明确面向 DATA6102 学生",
+        claimRefs: ["claim-applicability-001"],
+      },
+    ],
+  },
+  sourceTrust: {
+    sourceStatus: "unverified",
+    actionChannelStatus: "not_required",
+    reason: "工程 Mock 没有真实邮箱认证事实，不能把显示名称当作官方来源。",
+  },
+  informationCompleteness: {
+    status: "complete",
+    gaps: [],
+  },
+  consequence: {
+    level: "medium",
+    factState: "confirmed",
+    reason: "这是已确认的课程地点关键变更，需要优先知道，但没有强制动作或资格风险。",
+    highConsequenceClue: false,
+    claimRefs: ["claim-consequence-001"],
+  },
+  mailActions: [],
+  managementSuggestions: [
+    {
+      id: "suggestion-note-room-001",
+      origin: "ai_management_suggestion",
+      safetyClass: "low_risk_personal_management",
+      text: "可以在个人备忘中更新本次上课地点。",
+      reason: "这是低风险个人管理建议，不是学校要求。",
+      claimRefs: ["claim-update-001"],
+    },
+  ],
+  dates: [
+    {
+      id: "date-event-start-001",
+      role: "event_start",
+      originalText: "Thursday, 3 September 2026 at 6:30 pm Hong Kong time",
+      factState: "confirmed",
+      normalized: {
+        kind: "date_time",
+        value: "2026-09-03T18:30:00+08:00",
+        timeZone: "Asia/Hong_Kong",
+      },
+      linkedActionIds: [],
+      claimRefs: ["claim-date-001"],
+      calendarEligibility: {
+        eligible: false,
+        blockedReasonCode: "no_verified_mail_action",
+      },
+    },
+  ],
+  claims: [
+    {
+      id: "claim-summary-001",
+      kind: "summary",
+      text: "DATA6102 本次研讨课的上课地点已从 A201 改到 B405。",
+      highImpact: false,
+      factState: "confirmed",
+      evidenceIds: ["evidence-body-change-001"],
+    },
+    {
+      id: "claim-applicability-001",
+      kind: "applicability",
+      text: "通知面向 DATA6102 学生。",
+      highImpact: true,
+      factState: "confirmed",
+      evidenceIds: ["evidence-body-audience-001"],
+    },
+    {
+      id: "claim-date-001",
+      kind: "date",
+      text: "本次研讨课时间为 2026 年 9 月 3 日 18:30（香港时间）。",
+      highImpact: true,
+      factState: "confirmed",
+      evidenceIds: ["evidence-body-change-001"],
+    },
+    {
+      id: "claim-update-001",
+      kind: "update",
+      text: "教室由 A201 调整为 B405。",
+      highImpact: true,
+      factState: "confirmed",
+      evidenceIds: ["evidence-body-change-001"],
+    },
+    {
+      id: "claim-no-action-001",
+      kind: "action",
+      text: "邮件明确说明无需回复或提交。",
+      highImpact: true,
+      factState: "confirmed",
+      evidenceIds: ["evidence-body-no-action-001"],
+    },
+    {
+      id: "claim-consequence-001",
+      kind: "consequence",
+      text: "这是一项已确认的一般课程安排变更。",
+      highImpact: false,
+      factState: "confirmed",
+      evidenceIds: ["evidence-body-change-001"],
+    },
+  ],
+  evidence: [
+    {
+      id: "evidence-body-audience-001",
+      quote: "This notice is for students enrolled in DATA6102.",
+      location: {
+        kind: "body",
+        paragraph: 1,
+      },
+    },
+    {
+      id: "evidence-body-change-001",
+      quote:
+        "The seminar on Thursday, 3 September 2026 at 6:30 pm Hong Kong time will move from Room A201 to Room B405.",
+      location: {
+        kind: "body",
+        paragraph: 2,
+      },
+    },
+    {
+      id: "evidence-body-no-action-001",
+      quote: "No reply or submission is required.",
+      location: {
+        kind: "body",
+        paragraph: 3,
+      },
+    },
+  ],
+  risks: [],
+  unknowns: [
+    {
+      field: "source",
+      message: "工程 Mock 不包含真实租户、发件身份或邮箱认证信息。",
+      blockedCapabilities: [],
+    },
+  ],
+  relation: {
+    disposition: "new_item",
+    matchState: "not_applicable",
+    relatedItemId: null,
+    explanation: "邮件正文描述课程地点变化，但系统没有匹配或继承任何旧事项。",
+  },
+  states: {
+    read: "unread",
+    management: "active",
+    item: "active",
+    visibility: "active",
+    due: "upcoming",
+    version: "current",
+    updateKind: "none",
+    previousVersionId: null,
+    supersededByVersionId: null,
+    mergedIntoId: null,
+  },
+  capabilityBinding: {
+    viewModelVersion: "action-card-view-model/v0.1",
+    harnessPolicyVersion: "synthetic-fixture-policy-v1",
+    itemVersion: "synthetic-item-v1",
+  },
+  capabilities: {
+    viewOriginal: {
+      state: "unavailable",
+      decisionSource: "phase_boundary",
+      reasonCodes: ["not_implemented"],
+      message: "当前合成只读阶段不提供完整邮件原文。",
+    },
+    viewEvidence: {
+      state: "allowed",
+      decisionSource: "synthetic_fixture",
+      reasonCodes: [],
+      message: null,
+    },
+    askFixedFollowups: {
+      state: "unavailable",
+      decisionSource: "phase_boundary",
+      reasonCodes: ["not_implemented"],
+      message: "当前合成只读阶段尚未实现固定追问。",
+    },
+    retryAnalysis: {
+      state: "not_applicable",
+      decisionSource: "synthetic_fixture",
+      reasonCodes: ["mock_only"],
+      message: "工程 Mock 没有真实分析任务。",
+    },
+    openTrustedActionChannel: {
+      state: "not_applicable",
+      decisionSource: "synthetic_fixture",
+      reasonCodes: ["unsupported_for_item"],
+      message: "这封合成通知没有外部办理渠道。",
+    },
+    previewCalendar: {
+      state: "not_applicable",
+      decisionSource: "synthetic_fixture",
+      reasonCodes: ["unsupported_for_item"],
+      message: "邮件没有可生成日历预览的已验证行动。",
+      eligibleDateIds: [],
+    },
+    writeCalendar: {
+      state: "blocked",
+      decisionSource: "phase_boundary",
+      reasonCodes: ["mock_only", "not_connected"],
+      message: "当前只允许合成数据，且没有连接真实日历。",
+    },
+    markRead: {
+      state: "unavailable",
+      decisionSource: "phase_boundary",
+      reasonCodes: ["not_implemented"],
+      message: "当前合成代表页只验证只读数据合同。",
+    },
+    snooze: {
+      state: "unavailable",
+      decisionSource: "phase_boundary",
+      reasonCodes: ["not_implemented"],
+      message: "当前合成只读阶段尚未实现管理状态。",
+    },
+    markArranged: {
+      state: "unavailable",
+      decisionSource: "phase_boundary",
+      reasonCodes: ["not_implemented"],
+      message: "当前合成只读阶段尚未实现管理状态。",
+    },
+    markCompleted: {
+      state: "unavailable",
+      decisionSource: "phase_boundary",
+      reasonCodes: ["not_implemented"],
+      message: "当前合成只读阶段尚未实现管理状态。",
+    },
+    markIrrelevant: {
+      state: "unavailable",
+      decisionSource: "phase_boundary",
+      reasonCodes: ["not_implemented"],
+      message: "当前合成只读阶段尚未实现纠错状态。",
+    },
+    correctClassification: {
+      state: "unavailable",
+      decisionSource: "phase_boundary",
+      reasonCodes: ["not_implemented"],
+      message: "当前合成只读阶段尚未实现分类纠错。",
+    },
+  },
+} satisfies ActionCardViewModelInput;

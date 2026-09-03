@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.22.2
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            frontend/package-lock.json
+      - name: Install core dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Install frontend dependencies
+        run: npm ci --prefix frontend --no-audit --no-fund
+      - name: Core syntax checks
+        run: npm run check
+      - name: Core offline regression gates
+        run: |
+          npm run test:phase2r-a
+          npm run test:phase2r-b
+          npm run test:phase2r-c
+          npm run test:phase2r-d
+          npm run test:phase2a
+          npm run test:phase1r-a
+      - name: Frontend lint, types, tests and production build
+        run: npm --prefix frontend run check
+        env:
+          DEMO_MODE: hosted

@@ -1,0 +1,338 @@
+[
+  {
+    "followup_id": "FU-WTD-DEV001",
+    "runtime_status": "not_run",
+    "dataset_split": "development",
+    "parent_case_id": "DEV001",
+    "question_id": "what_to_do",
+    "question": "我具体要做什么",
+    "expected": {
+      "answer": "你属于已确认的 COMP7101 学生，必须通过课程平台提交 Assignment 1；截止为 2026-08-31 17:00 HKT。",
+      "claim_ids": ["DEV001-C1", "DEV001-C2", "DEV001-C3"],
+      "evidence_ids": ["DEV001-E1", "DEV001-E2", "DEV001-E4"],
+      "unknowns": [],
+      "source_mode": "synthetic_fixture_expected",
+      "obligation_condition_preserved": true,
+      "no_new_high_impact_claims": true,
+      "invariant_assertions": [
+        "claim_ids_subset_of_parent",
+        "evidence_ids_subset_of_parent",
+        "unknown_ids_subset_of_parent",
+        "parent_action_obligation_and_condition_status_unchanged",
+        "home_section_unchanged",
+        "source_status_unchanged",
+        "calendar_eligibility_unchanged",
+        "no_external_tool_call"
+      ]
+    }
+  },
+  {
+    "followup_id": "FU-WTD-DEV018",
+    "runtime_status": "not_run",
+    "dataset_split": "development",
+    "parent_case_id": "DEV018",
+    "question_id": "what_to_do",
+    "question": "我具体要做什么",
+    "expected": {
+      "answer": "没有学校强制行动；你可以自愿出席可信智能体研究讲座，而且无需回复。",
+      "claim_ids": ["DEV018-C2", "DEV018-C3"],
+      "evidence_ids": ["DEV018-E1", "DEV018-E3"],
+      "unknowns": [],
+      "source_mode": "synthetic_fixture_expected",
+      "obligation_condition_preserved": true,
+      "no_new_high_impact_claims": true,
+      "invariant_assertions": [
+        "claim_ids_subset_of_parent",
+        "evidence_ids_subset_of_parent",
+        "unknown_ids_subset_of_parent",
+        "parent_action_obligation_and_condition_status_unchanged",
+        "optional_action_not_promoted_to_mandatory",
+        "home_section_unchanged",
+        "source_status_unchanged",
+        "calendar_eligibility_unchanged",
+        "no_external_tool_call"
+      ]
+    }
+  },
+  {
+    "followup_id": "FU-WTD-LOCK-M01",
+    "runtime_status": "not_run",
+    "dataset_split": "locked",
+    "parent_case_id": "LOCK-M01",
+    "question_id": "what_to_do",
+    "question": "我具体要做什么",
+    "expected": {
+      "answer": "你必须在 2026-09-04 17:00 HKT 前通过 https://fees.hmu.invalid/pay 支付 HKD 84,200 学费。",
+      "claim_ids": ["cl-m01-01", "cl-m01-02", "cl-m01-04"],
+      "evidence_ids": ["ev-m01-01", "ev-m01-02"],
+      "unknowns": [],
+      "source_mode": "synthetic_fixture_expected",
+      "obligation_condition_preserved": true,
+      "no_new_high_impact_claims": true,
+      "invariant_assertions": [
+        "claim_ids_subset_of_parent",
+        "evidence_ids_subset_of_parent",
+        "unknown_ids_subset_of_parent",
+        "parent_action_obligation_and_condition_status_unchanged",
+        "home_section_unchanged",
+        "source_status_unchanged",
+        "calendar_eligibility_unchanged",
+        "no_external_tool_call"
+      ]
+    }
+  },
+  {
+    "followup_id": "FU-WTD-LOCK-M03",
+    "runtime_status": "not_run",
+    "dataset_split": "locked",
+    "parent_case_id": "LOCK-M03",
+    "question_id": "what_to_do",
+    "question": "我具体要做什么",
+    "expected": {
+      "answer": "目前无法确认你必须提交。只有 2026 年 1 月入学且签证在 2026-12-31 前到期的学生，才必须提交签证延期资格表；当前画像缺少届别和签证到期日，提交时间也将另行通知。",
+      "claim_ids": ["cl-m03-01", "cl-m03-03"],
+      "evidence_ids": ["ev-m03-01", "ev-m03-03"],
+      "unknowns": ["unc-m03-01", "unc-m03-02", "unc-m03-03"],
+      "source_mode": "synthetic_fixture_expected",
+      "obligation_condition_preserved": true,
+      "no_new_high_impact_claims": true,
+      "invariant_assertions": [
+        "claim_ids_subset_of_parent",
+        "evidence_ids_subset_of_parent",
+        "unknown_ids_subset_of_parent",
+        "parent_action_obligation_and_condition_status_unchanged",
+        "unknown_condition_not_promoted_to_met",
+        "home_section_unchanged",
+        "source_status_unchanged",
+        "calendar_eligibility_unchanged",
+        "no_external_tool_call"
+      ]
+    }
+  },
+  {
+    "followup_id": "FU-DEADLINE-DEV003",
+    "runtime_status": "not_run",
+    "dataset_split": "development",
+    "parent_case_id": "DEV003",
+    "question_id": "deadline_evidence",
+    "question": "截止时间依据是什么",
+    "expected": {
+      "answer": "原文写明“2026 年 9 月 3 日下午 5 時前”；日期角色是截止（deadline），归一结果为 2026-09-03 17:00 HKT。",
+      "claim_ids": ["DEV003-C3"],
+      "evidence_ids": ["DEV003-E1"],
+      "unknowns": [],
+      "source_mode": "synthetic_fixture_expected",
+      "obligation_condition_preserved": true,
+      "no_new_high_impact_claims": true,
+      "invariant_assertions": [
+        "claim_ids_subset_of_parent",
+        "evidence_ids_subset_of_parent",
+        "unknown_ids_subset_of_parent",
+        "date_role_normalization_and_fact_state_match_parent",
+        "parent_action_obligation_and_condition_status_unchanged",
+        "home_section_unchanged",
+        "source_status_unchanged",
+        "calendar_eligibility_unchanged",
+        "no_external_tool_call"
+      ]
+    }
+  },
+  {
+    "followup_id": "FU-DEADLINE-DEV027",
+    "runtime_status": "not_run",
+    "dataset_split": "development",
+    "parent_case_id": "DEV027",
+    "question_id": "deadline_evidence",
+    "question": "截止时间依据是什么",
+    "expected": {
+      "answer": "原文只写“5:00 pm HKT on 31 August”；候选日期角色是截止（deadline），但因缺少年份，不能给出确定归一结果，也不能生成日历预览。",
+      "claim_ids": ["DEV027-C3"],
+      "evidence_ids": ["DEV027-E2"],
+      "unknowns": ["DEV027-U1"],
+      "source_mode": "synthetic_fixture_expected",
+      "obligation_condition_preserved": true,
+      "no_new_high_impact_claims": true,
+      "invariant_assertions": [
+        "claim_ids_subset_of_parent",
+        "evidence_ids_subset_of_parent",
+        "unknown_ids_subset_of_parent",
+        "no_normalized_deadline_when_parent_date_is_possible",
+        "parent_action_obligation_and_condition_status_unchanged",
+        "home_section_unchanged",
+        "source_status_unchanged",
+        "calendar_eligibility_unchanged",
+        "no_external_tool_call"
+      ]
+    }
+  },
+  {
+    "followup_id": "FU-DEADLINE-LOCK-M01",
+    "runtime_status": "not_run",
+    "dataset_split": "locked",
+    "parent_case_id": "LOCK-M01",
+    "question_id": "deadline_evidence",
+    "question": "截止时间依据是什么",
+    "expected": {
+      "answer": "原文写明“4 September 2026, 17:00 HKT”；日期角色是截止（deadline），归一结果为 2026-09-04 17:00 HKT。",
+      "claim_ids": ["cl-m01-02"],
+      "evidence_ids": ["ev-m01-02"],
+      "unknowns": [],
+      "source_mode": "synthetic_fixture_expected",
+      "obligation_condition_preserved": true,
+      "no_new_high_impact_claims": true,
+      "invariant_assertions": [
+        "claim_ids_subset_of_parent",
+        "evidence_ids_subset_of_parent",
+        "unknown_ids_subset_of_parent",
+        "date_role_normalization_and_fact_state_match_parent",
+        "parent_action_obligation_and_condition_status_unchanged",
+        "home_section_unchanged",
+        "source_status_unchanged",
+        "calendar_eligibility_unchanged",
+        "no_external_tool_call"
+      ]
+    }
+  },
+  {
+    "followup_id": "FU-DEADLINE-LOCK-M02",
+    "runtime_status": "not_run",
+    "dataset_split": "locked",
+    "parent_case_id": "LOCK-M02",
+    "question_id": "deadline_evidence",
+    "question": "截止时间依据是什么",
+    "expected": {
+      "answer": "邮件明确写明“本郵件沒有列出截止日期”，因此不存在可确认的截止（deadline）角色或可归一结果；截止紧迫性、日历预览和基于时间的通知均不可用。",
+      "claim_ids": ["cl-m02-05"],
+      "evidence_ids": ["ev-m02-04"],
+      "unknowns": ["unc-m02-01"],
+      "source_mode": "synthetic_fixture_expected",
+      "obligation_condition_preserved": true,
+      "no_new_high_impact_claims": true,
+      "invariant_assertions": [
+        "claim_ids_subset_of_parent",
+        "evidence_ids_subset_of_parent",
+        "unknown_ids_subset_of_parent",
+        "no_normalized_deadline_when_parent_has_no_date",
+        "parent_action_obligation_and_condition_status_unchanged",
+        "home_section_unchanged",
+        "source_status_unchanged",
+        "calendar_eligibility_unchanged",
+        "no_external_tool_call"
+      ]
+    }
+  },
+  {
+    "followup_id": "FU-UNCERTAINTIES-DEV009",
+    "runtime_status": "not_run",
+    "dataset_split": "development",
+    "parent_case_id": "DEV009",
+    "question_id": "uncertainties",
+    "question": "哪些地方仍不确定",
+    "expected": {
+      "answer": "COMP7200 仅为候选课程，未确认当前选课，因此无法确认该强制登记义务适用于你；当前用户强制行动、“要处理”和日历预览均被阻止。",
+      "claim_ids": ["DEV009-C1", "DEV009-C2"],
+      "evidence_ids": ["DEV009-E1"],
+      "unknowns": ["DEV009-U1"],
+      "source_mode": "synthetic_fixture_expected",
+      "obligation_condition_preserved": true,
+      "no_new_high_impact_claims": true,
+      "invariant_assertions": [
+        "claim_ids_subset_of_parent",
+        "evidence_ids_subset_of_parent",
+        "unknown_ids_subset_of_parent",
+        "uncertainty_capability_effects_match_parent",
+        "parent_action_obligation_and_condition_status_unchanged",
+        "unknown_condition_not_promoted_to_met",
+        "home_section_unchanged",
+        "source_status_unchanged",
+        "calendar_eligibility_unchanged",
+        "no_external_tool_call"
+      ]
+    }
+  },
+  {
+    "followup_id": "FU-UNCERTAINTIES-DEV015",
+    "runtime_status": "not_run",
+    "dataset_split": "development",
+    "parent_case_id": "DEV015",
+    "question_id": "uncertainties",
+    "question": "哪些地方仍不确定",
+    "expected": {
+      "answer": "关键 PDF 加密且地图附件格式不支持，因此材料、行动、截止、办理渠道和后果均无法确认；所有只存在于附件的结论、强制行动、“要处理”、日历预览和高风险行动链接均被阻止。",
+      "claim_ids": ["DEV015-C1", "DEV015-C2"],
+      "evidence_ids": ["DEV015-E1", "DEV015-E2"],
+      "unknowns": ["DEV015-U1"],
+      "source_mode": "synthetic_fixture_expected",
+      "obligation_condition_preserved": true,
+      "no_new_high_impact_claims": true,
+      "invariant_assertions": [
+        "claim_ids_subset_of_parent",
+        "evidence_ids_subset_of_parent",
+        "unknown_ids_subset_of_parent",
+        "uncertainty_capability_effects_match_parent",
+        "no_action_or_date_added_when_parent_has_none",
+        "home_section_unchanged",
+        "source_status_unchanged",
+        "calendar_eligibility_unchanged",
+        "no_external_tool_call"
+      ]
+    }
+  },
+  {
+    "followup_id": "FU-UNCERTAINTIES-LOCK-M02",
+    "runtime_status": "not_run",
+    "dataset_split": "locked",
+    "parent_case_id": "LOCK-M02",
+    "question_id": "uncertainties",
+    "question": "哪些地方仍不确定",
+    "expected": {
+      "answer": "唯一明确的不确定项是邮件没有提供截止日期，因此无法判断截止紧迫性，也不能生成日历预览或时间窗口通知。",
+      "claim_ids": ["cl-m02-05"],
+      "evidence_ids": ["ev-m02-04"],
+      "unknowns": ["unc-m02-01"],
+      "source_mode": "synthetic_fixture_expected",
+      "obligation_condition_preserved": true,
+      "no_new_high_impact_claims": true,
+      "invariant_assertions": [
+        "claim_ids_subset_of_parent",
+        "evidence_ids_subset_of_parent",
+        "unknown_ids_subset_of_parent",
+        "uncertainty_capability_effects_match_parent",
+        "parent_action_obligation_and_condition_status_unchanged",
+        "home_section_unchanged",
+        "source_status_unchanged",
+        "calendar_eligibility_unchanged",
+        "no_external_tool_call"
+      ]
+    }
+  },
+  {
+    "followup_id": "FU-UNCERTAINTIES-LOCK-M03",
+    "runtime_status": "not_run",
+    "dataset_split": "locked",
+    "parent_case_id": "LOCK-M03",
+    "question_id": "uncertainties",
+    "question": "哪些地方仍不确定",
+    "expected": {
+      "answer": "当前有三项不确定：画像缺少届别，无法确认是否为 2026 年 1 月入学；画像缺少签证到期日，无法判断条件是否满足；邮件未提供提交截止。因此不能确认适用性、提升到“要处理”、生成日历预览或时间窗口通知。",
+      "claim_ids": ["cl-m03-01", "cl-m03-03"],
+      "evidence_ids": ["ev-m03-01", "ev-m03-03"],
+      "unknowns": ["unc-m03-01", "unc-m03-02", "unc-m03-03"],
+      "source_mode": "synthetic_fixture_expected",
+      "obligation_condition_preserved": true,
+      "no_new_high_impact_claims": true,
+      "invariant_assertions": [
+        "claim_ids_subset_of_parent",
+        "evidence_ids_subset_of_parent",
+        "unknown_ids_subset_of_parent",
+        "uncertainty_capability_effects_match_parent",
+        "parent_action_obligation_and_condition_status_unchanged",
+        "unknown_condition_not_promoted_to_met",
+        "home_section_unchanged",
+        "source_status_unchanged",
+        "calendar_eligibility_unchanged",
+        "no_external_tool_call"
+      ]
+    }
+  }
+]

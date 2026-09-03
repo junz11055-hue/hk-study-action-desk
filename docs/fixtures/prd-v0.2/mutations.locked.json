@@ -1,0 +1,398 @@
+{
+  "fixture_version": "prd-v0.2-fixture-v1",
+  "generated_on": "2026-08-30",
+  "runtime_status": "not_run",
+  "data_class": "fully_synthetic",
+  "mutation_discipline": "每条只改变一个根输入；expected_dependency_deltas 可以包含该根变化引起的多个下游结果。附件 parse_status 是唯一根变化时，attachment_overall_status 作为由该根确定性派生的规范化输入字段记录在级联中，不构成第二个独立根。",
+  "mutations": [
+    {
+      "mutation_id": "MUT-PROFILE-CANDIDATE",
+      "mutation_group": "profile_state",
+      "parent_case_id": "LOCK-M04",
+      "dependency_id": null,
+      "root_changed_input": {"path": "input.profile.courses[0].status", "from": "confirmed", "to": "candidate"},
+      "expected_dependency_deltas": [
+        {"path": "expected.applicability.value", "from": "applies", "to": "possibly_applies"},
+        {"path": "expected.applicability.fact_state", "from": "confirmed", "to": "possible", "reason": "候选课程只能支持可能相关。"},
+        {"path": "expected.fact_states.applicability", "from": "confirmed", "to": "possible"},
+        {"path": "expected.actions[0].fact_state", "from": "confirmed", "to": "possible"},
+        {"path": "expected.fact_states.actions", "from": "confirmed", "to": "possible"},
+        {"path": "expected.resulting_item.home_section", "from": "要处理", "to": "优先阅读", "reason": "不能仅凭候选课程证明当前用户必须行动。"},
+        {"path": "expected.calendar_eligible", "from": true, "to": false, "reason": "当前用户适用性未确认。"},
+        {"path": "expected.north_star_eligible", "from": true, "to": false, "reason": "北极星要求适用性已确认。"},
+        {"path": "expected.north_star_maturity_status", "from": "pending", "to": "not_applicable"},
+        {"path": "expected.blocked_capabilities", "operation": "append", "value": "promote_to_todo_from_candidate_course"},
+        {"path": "expected.uncertainties", "operation": "append", "value": {"uncertainty_id": "unc-mut-profile-candidate", "missing_or_conflict": "课程仅为候选，尚未由用户确认。", "blocked_capabilities": ["confirmed_applicability", "promote_to_todo", "calendar_preview", "north_star_eligibility"]}}
+      ]
+    },
+    {
+      "mutation_id": "MUT-PROFILE-EXPIRED",
+      "mutation_group": "profile_state",
+      "parent_case_id": "LOCK-M04",
+      "dependency_id": null,
+      "root_changed_input": {"path": "input.profile.courses[0].status", "from": "confirmed", "to": "expired"},
+      "expected_dependency_deltas": [
+        {"path": "expected.applicability.value", "from": "applies", "to": "possibly_applies"},
+        {"path": "expected.applicability.fact_state", "from": "confirmed", "to": "possible", "reason": "过期课程不能证明当前学期适用。"},
+        {"path": "expected.fact_states.applicability", "from": "confirmed", "to": "possible"},
+        {"path": "expected.actions[0].fact_state", "from": "confirmed", "to": "possible"},
+        {"path": "expected.fact_states.actions", "from": "confirmed", "to": "possible"},
+        {"path": "expected.resulting_item.home_section", "from": "要处理", "to": "优先阅读", "reason": "保留课程线索可见性但阻止必须做结论。"},
+        {"path": "expected.calendar_eligible", "from": true, "to": false, "reason": "适用性先决条件失效。"},
+        {"path": "expected.north_star_eligible", "from": true, "to": false, "reason": "不满足适用性确认。"},
+        {"path": "expected.north_star_maturity_status", "from": "pending", "to": "not_applicable"},
+        {"path": "expected.blocked_capabilities", "operation": "append", "value": "promote_to_todo_from_expired_course"},
+        {"path": "expected.uncertainties", "operation": "append", "value": {"uncertainty_id": "unc-mut-profile-expired", "missing_or_conflict": "课程记录已经过期，需要核对当前学期。", "blocked_capabilities": ["confirmed_applicability", "promote_to_todo", "calendar_preview", "north_star_eligibility"]}}
+      ]
+    },
+    {
+      "mutation_id": "MUT-PROFILE-REMOVED",
+      "mutation_group": "profile_state",
+      "parent_case_id": "LOCK-M04",
+      "dependency_id": null,
+      "root_changed_input": {"path": "input.profile.courses[0].status", "from": "confirmed", "to": "removed"},
+      "expected_dependency_deltas": [
+        {"path": "expected.applicability.value", "from": "applies", "to": "not_applicable", "reason": "已移除课程只能作为负向或历史上下文。"},
+        {"path": "expected.applicability.fact_state", "from": "confirmed", "to": "confirmed", "reason": "由已确认的移除状态证明不适用，而不是把它当正向匹配。"},
+        {"path": "expected.actions[0].fact_state", "from": "confirmed", "to": "unconfirmed", "reason": "邮件行动不适用于已确认移除该课程的当前用户。"},
+        {"path": "expected.fact_states.actions", "from": "confirmed", "to": "unconfirmed"},
+        {"path": "expected.resulting_item.home_section", "from": "要处理", "to": "其他通知", "reason": "已确认不适用且没有原生重要、高后果或其他保护依据。"},
+        {"path": "expected.notification_channel", "from": "daily_digest", "to": "notification_center_only"},
+        {"path": "expected.calendar_eligible", "from": true, "to": false, "reason": "当前用户没有受信适用行动。"},
+        {"path": "expected.north_star_eligible", "from": true, "to": false, "reason": "不适用事项不得进入分母。"},
+        {"path": "expected.north_star_maturity_status", "from": "pending", "to": "not_applicable"},
+        {"path": "expected.blocked_capabilities", "operation": "append", "value": "current_user_action_from_removed_course"}
+      ]
+    },
+    {
+      "mutation_id": "MUT-DEP01-APPLICABILITY",
+      "mutation_group": "dependency_failure",
+      "parent_case_id": "LOCK-M04",
+      "dependency_id": "DEP01",
+      "root_changed_input": {"path": "input.profile.courses[0].confirmation_status", "from": "confirmed", "to": "unconfirmed"},
+      "expected_dependency_deltas": [
+        {"path": "expected.applicability.value", "from": "applies", "to": "possibly_applies"},
+        {"path": "expected.applicability.fact_state", "from": "confirmed", "to": "possible"},
+        {"path": "expected.fact_states.applicability", "from": "confirmed", "to": "possible"},
+        {"path": "expected.actions[0].fact_state", "from": "confirmed", "to": "possible"},
+        {"path": "expected.fact_states.actions", "from": "confirmed", "to": "possible"},
+        {"path": "expected.resulting_item.home_section", "from": "要处理", "to": "优先阅读"},
+        {"path": "expected.calendar_eligible", "from": true, "to": false},
+        {"path": "expected.north_star_eligible", "from": true, "to": false},
+        {"path": "expected.north_star_maturity_status", "from": "pending", "to": "not_applicable"},
+        {"path": "expected.blocked_capabilities", "operation": "append", "value": "confirmed_current_user_action"},
+        {"path": "expected.uncertainties", "operation": "append", "value": {"uncertainty_id": "unc-mut-dep01", "missing_or_conflict": "课程画像字段尚未确认，不能证明当前用户必须提交。", "blocked_capabilities": ["confirmed_applicability", "promote_to_todo", "calendar_preview", "north_star_eligibility"]}}
+      ]
+    },
+    {
+      "mutation_id": "MUT-DEP02-OBLIGATION",
+      "mutation_group": "dependency_failure",
+      "parent_case_id": "LOCK-M04",
+      "dependency_id": "DEP02",
+      "root_changed_input": {
+        "path": "input.message.body",
+        "from": "All students enrolled in COMP7012 Data Pipeline Engineering must submit Assignment 1.\nUpload the PDF report and pipeline archive by 3 September 2026, 17:00 HKT at https://learn.hmu.invalid/comp7012/a1.\nLate work is accepted for three days with a five-percentage-point deduction per day.",
+        "to": "All students enrolled in COMP7012 Data Pipeline Engineering should review the Assignment 1 submission information; this notice does not say whether submission is mandatory.\nThe listed submission deadline is 3 September 2026, 17:00 HKT for a PDF report and pipeline archive at https://learn.hmu.invalid/comp7012/a1.\nLate work is accepted for three days with a five-percentage-point deduction per day."
+      },
+      "expected_dependency_deltas": [
+        {"path": "expected.evidence[0].quote", "from": "All students enrolled in COMP7012 Data Pipeline Engineering must submit Assignment 1.", "to": "All students enrolled in COMP7012 Data Pipeline Engineering should review the Assignment 1 submission information; this notice does not say whether submission is mandatory."},
+        {"path": "expected.evidence[1].quote", "from": "Upload the PDF report and pipeline archive by 3 September 2026, 17:00 HKT at https://learn.hmu.invalid/comp7012/a1.", "to": "The listed submission deadline is 3 September 2026, 17:00 HKT for a PDF report and pipeline archive at https://learn.hmu.invalid/comp7012/a1."},
+        {"path": "expected.claims[0].type", "from": "applicability_and_obligation", "to": "applicability_and_obligation_gap"},
+        {"path": "expected.claims[0].text", "from": "已选 COMP7012 的学生必须提交 Assignment 1。", "to": "邮件面向已选 COMP7012 的学生，但未说明提交是否强制。"},
+        {"path": "expected.claims[1].text", "from": "必须在 2026-09-03 17:00 HKT 前上传 PDF 报告与 pipeline archive。", "to": "邮件列出 2026-09-03 17:00 HKT、PDF 报告、pipeline archive 与提交页面，但不证明当前用户必须提交。"},
+        {"path": "expected.actions", "operation": "clear"},
+        {"path": "expected.fact_states.actions", "from": "confirmed", "to": "unconfirmed"},
+        {"path": "expected.fact_states.obligation", "from": "confirmed", "to": "unconfirmed"},
+        {"path": "expected.resulting_item.home_section", "from": "要处理", "to": "优先阅读"},
+        {"path": "expected.calendar_eligible", "from": true, "to": false},
+        {"path": "expected.north_star_eligible", "from": true, "to": false},
+        {"path": "expected.north_star_maturity_status", "from": "pending", "to": "not_applicable"},
+        {"path": "expected.blocked_capabilities", "operation": "append", "value": "mandatory_action_conclusion"},
+        {"path": "expected.uncertainties", "operation": "append", "value": {"uncertainty_id": "unc-mut-dep02", "missing_or_conflict": "邮件没有说明 Assignment 1 提交是否为强制义务。", "blocked_capabilities": ["mandatory_action_summary", "promote_to_todo", "action_notification", "calendar_preview", "north_star_eligibility"]}}
+      ]
+    },
+    {
+      "mutation_id": "MUT-DEP03-DATE",
+      "mutation_group": "dependency_failure",
+      "parent_case_id": "LOCK-M01",
+      "dependency_id": "DEP03",
+      "root_changed_input": {
+        "path": "input.message.body",
+        "from": "Payment is mandatory for all MSc Digital Systems students in the September 2026 intake.\nPay HKD 84,200 by 4 September 2026, 17:00 HKT through https://fees.hmu.invalid/pay.\nIf payment is not received by the deadline, your registration will be placed on hold and course enrolment will be blocked.",
+        "to": "Payment is mandatory for all MSc Digital Systems students in the September 2026 intake.\nPay HKD 84,200 through https://fees.hmu.invalid/pay. The notice also mentions 4 September 2026, 17:00 HKT but does not identify what that timestamp controls.\nIf payment is not received by the deadline, your registration will be placed on hold and course enrolment will be blocked."
+      },
+      "expected_dependency_deltas": [
+        {"path": "expected.evidence[1].quote", "from": "Pay HKD 84,200 by 4 September 2026, 17:00 HKT through https://fees.hmu.invalid/pay.", "to": "Pay HKD 84,200 through https://fees.hmu.invalid/pay. The notice also mentions 4 September 2026, 17:00 HKT but does not identify what that timestamp controls."},
+        {"path": "expected.claims[1].type", "from": "action_amount_deadline", "to": "action_amount_and_ambiguous_date"},
+        {"path": "expected.claims[1].text", "from": "必须在 2026-09-04 17:00 HKT 前支付 HKD 84,200。", "to": "必须支付 HKD 84,200；邮件提及 2026-09-04 17:00 HKT，但没有说明该时间的角色。"},
+        {"path": "expected.dates[0].role", "from": "deadline", "to": "unknown"},
+        {"path": "expected.dates[0].normalized", "from": "2026-09-04T17:00:00+08:00", "to": null},
+        {"path": "expected.dates[0].fact_state", "from": "confirmed", "to": "unconfirmed"},
+        {"path": "expected.dates[0].calendar_candidate", "from": true, "to": false},
+        {"path": "expected.fact_states.dates", "from": "confirmed", "to": "unconfirmed"},
+        {"path": "expected.resulting_item.due_status", "from": "upcoming", "to": "unknown"},
+        {"path": "expected.calendar_eligible", "from": true, "to": false},
+        {"path": "expected.north_star_eligible", "from": true, "to": false},
+        {"path": "expected.north_star_maturity_status", "from": "pending", "to": "not_applicable"},
+        {"path": "expected.blocked_capabilities", "operation": "append", "value": "date_based_urgency_and_calendar"},
+        {"path": "expected.uncertainties", "operation": "append", "value": {"uncertainty_id": "unc-mut-dep03", "missing_or_conflict": "邮件提及时间但没有说明它是否为付款截止。", "blocked_capabilities": ["deadline_urgency", "calendar_preview", "north_star_eligibility"]}}
+      ]
+    },
+    {
+      "mutation_id": "MUT-DEP04-SOURCE",
+      "mutation_group": "dependency_failure",
+      "parent_case_id": "LOCK-M01",
+      "dependency_id": "DEP04",
+      "root_changed_input": {
+        "path": "input.message.security_facts",
+        "from": {"connector_authentication": "passed", "sender_mapping": "matched", "tenant_mapping": "matched", "reviewed_service_provider_scope_match": null, "action_channels": [{"type": "web", "domain": "fees.hmu.invalid", "status": "verified"}], "security_conflict": false, "risk_reasons": [], "recipient_account_match": null},
+        "to": {"connector_authentication": "not_available", "sender_mapping": "not_matched", "tenant_mapping": "not_matched", "reviewed_service_provider_scope_match": null, "action_channels": [{"type": "web", "domain": "fees.hmu.invalid", "status": "unverified"}], "security_conflict": false, "risk_reasons": ["connector_authentication_not_available", "sender_mapping_not_matched", "tenant_mapping_not_matched", "action_channel_unverified"], "recipient_account_match": null}
+      },
+      "expected_dependency_deltas": [
+        {"path": "expected.source_truth_id", "from": "SRC01", "to": "SRC04"},
+        {"path": "expected.source_status", "from": "official_verified", "to": "unverified"},
+        {"path": "expected.action_channel_status", "from": "verified", "to": "unverified"},
+        {"path": "expected.resulting_item.home_section", "from": "要处理", "to": "优先阅读"},
+        {"path": "expected.calendar_eligible", "from": true, "to": false},
+        {"path": "expected.north_star_eligible", "from": true, "to": false},
+        {"path": "expected.north_star_maturity_status", "from": "pending", "to": "not_applicable"},
+        {"path": "expected.blocked_capabilities", "operation": "append", "value": "trusted_action_link"},
+        {"path": "expected.blocked_capabilities", "operation": "append", "value": "official_high_risk_action"},
+        {"path": "expected.uncertainties", "operation": "append", "value": {"uncertainty_id": "unc-mut-dep04", "missing_or_conflict": "发件来源与付款渠道均未通过独立认证和允许映射。", "blocked_capabilities": ["official_verified_label", "trusted_action_link", "promote_to_todo", "calendar_preview", "north_star_eligibility"]}}
+      ]
+    },
+    {
+      "mutation_id": "MUT-DEP05-EVIDENCE",
+      "mutation_group": "dependency_failure",
+      "parent_case_id": "LOCK-M02",
+      "dependency_id": "DEP05",
+      "root_changed_input": {
+        "path": "input.message.body",
+        "from": "數碼系統理學碩士 2026 年 9 月入學學生必須補交護照資料頁及畢業證明副本。\n如未補交，學生註冊將暫停，並可能無法完成學籍啟用。\n請登入 https://registry.hmu.invalid/documents 上載。\n本郵件沒有列出截止日期。",
+        "to": "數碼系統理學碩士 2026 年 9 月入學學生請查閱註冊文件說明；本郵件沒有列明目前需要補交哪些文件。\n如未補交所需文件，學生註冊將暫停，並可能無法完成學籍啟用。\n文件頁面為 https://registry.hmu.invalid/documents。\n本郵件沒有列出截止日期。"
+      },
+      "expected_dependency_deltas": [
+        {"path": "expected.evidence[0].quote", "from": "數碼系統理學碩士 2026 年 9 月入學學生必須補交護照資料頁及畢業證明副本。", "to": "數碼系統理學碩士 2026 年 9 月入學學生請查閱註冊文件說明；本郵件沒有列明目前需要補交哪些文件。"},
+        {"path": "expected.evidence[1].quote", "from": "如未補交，學生註冊將暫停，並可能無法完成學籍啟用。", "to": "如未補交所需文件，學生註冊將暫停，並可能無法完成學籍啟用。"},
+        {"path": "expected.evidence[2].quote", "from": "請登入 https://registry.hmu.invalid/documents 上載。", "to": "文件頁面為 https://registry.hmu.invalid/documents。"},
+        {"path": "expected.claims[3].type", "from": "action_channel", "to": "reference_page"},
+        {"path": "expected.claims[3].text", "from": "邮件写明上传入口为 https://registry.hmu.invalid/documents。", "to": "邮件写明注册文件页面为 https://registry.hmu.invalid/documents。"},
+        {"path": "expected.claims", "operation": "remove_at", "index": 1, "expected_removed_id": "cl-m02-02"},
+        {"path": "expected.actions", "operation": "clear"},
+        {"path": "expected.fact_states.actions", "from": "confirmed", "to": "unconfirmed"},
+        {"path": "expected.fact_states.obligation", "from": "confirmed", "to": "unconfirmed"},
+        {"path": "expected.resulting_item.home_section", "from": "要处理", "to": "优先阅读"},
+        {"path": "expected.resulting_item.reasoning", "from": ["无日期不阻止已确认强制行动进入要处理，但必须直说日期缺口。", "已解析合成附件仅补充 PDF 文件格式约束，不改变主要行动或分区。"], "to": ["正文没有列明当前用户需要补交的具体文件，不能生成强制行动。", "已解析合成附件只证明上传文件的 PDF 格式约束，不能独立创造补交义务。"]},
+        {"path": "expected.blocked_capabilities", "operation": "append", "value": "confirmed_document_upload_action"},
+        {"path": "expected.uncertainties", "operation": "append", "value": {"uncertainty_id": "unc-mut-dep05", "missing_or_conflict": "正文没有列明当前需要补交的具体文件；附件只说明格式。", "blocked_capabilities": ["mandatory_action_summary", "promote_to_todo", "document_upload_action"]}}
+      ]
+    },
+    {
+      "mutation_id": "MUT-DEP06-UPDATE-RELATION",
+      "mutation_group": "dependency_failure",
+      "parent_case_id": "LOCK-M16",
+      "dependency_id": "DEP06",
+      "root_changed_input": {
+        "path": "input.message.body",
+        "from": "This correction replaces the schedule in msg-lock-m16-old for stable examination key COMP7405-FINAL-2026T1.\nThe COMP7405 final examination has been postponed from 10 December 2026, 09:00 HKT in Hall A to 12 December 2026, 14:00 HKT in Hall C.\nNo reply or form is required. Missing the revised final examination may result in loss of assessment eligibility.",
+        "to": "This notice may relate to an earlier COMP7405 examination schedule, but it does not identify a prior message, item, or stable examination key.\nThe COMP7405 final examination has been postponed from 10 December 2026, 09:00 HKT in Hall A to 12 December 2026, 14:00 HKT in Hall C.\nNo reply or form is required. Missing the revised final examination may result in loss of assessment eligibility."
+      },
+      "expected_dependency_deltas": [
+        {"path": "expected.evidence[0].quote", "from": "This correction replaces the schedule in msg-lock-m16-old for stable examination key COMP7405-FINAL-2026T1.", "to": "This notice may relate to an earlier COMP7405 examination schedule, but it does not identify a prior message, item, or stable examination key."},
+        {"path": "expected.claims[0].type", "from": "update_relation", "to": "possible_update_relation"},
+        {"path": "expected.claims[0].text", "from": "该更正明确替换 msg-lock-m16-old，并使用相同稳定考试键。", "to": "邮件只表示可能关联更早的 COMP7405 考试安排，未提供可唯一匹配的旧消息、事项或稳定键。"},
+        {"path": "expected.claims[0].fact_state", "from": "confirmed", "to": "unconfirmed"},
+        {"path": "expected.incoming_disposition", "from": "update_existing", "to": "new_item"},
+        {"path": "expected.relation_truth_id", "from": "REL02", "to": "REL07"},
+        {"path": "expected.fact_states.relation", "from": "confirmed", "to": "unconfirmed"},
+        {"path": "expected.resulting_item.supersedes_item_id", "from": "item-lock-m16-old", "to": null},
+        {"path": "expected.resulting_item.superseded_version_status", "from": "superseded", "to": null},
+        {"path": "expected.resulting_item.reasoning[0]", "from": "明确旧消息 ID、同一学校和稳定考试键唯一命中旧事项；创建 current 新版本，旧版本 superseded，并因安排失效恢复活跃未读。", "to": "考试变化本身已确认，但旧事项无法唯一匹配，因此按 REL07 新建并禁止继承旧管理或日历关系。"},
+        {"path": "expected.blocked_capabilities", "operation": "append", "value": "update_existing"},
+        {"path": "expected.blocked_capabilities", "operation": "append", "value": "inherit_old_management_or_calendar"},
+        {"path": "expected.uncertainties", "operation": "append", "value": {"uncertainty_id": "unc-mut-dep06", "missing_or_conflict": "可能关联旧事项，但没有旧消息引用或稳定业务键，无法唯一命中。", "blocked_capabilities": ["update_existing", "inherit_management_status", "inherit_calendar_relation", "overwrite_old_fact"]}}
+      ]
+    },
+    {
+      "mutation_id": "MUT-DEP07-ATTACHMENT",
+      "mutation_group": "dependency_failure",
+      "parent_case_id": "LOCK-M02",
+      "dependency_id": "DEP07",
+      "root_changed_input": {"path": "input.message.attachments[0].parse_status", "from": "parsed", "to": "failed"},
+      "expected_dependency_deltas": [
+        {"path": "input.message.attachment_overall_status", "from": "parsed", "to": "unparsed"},
+        {"path": "expected.evidence", "operation": "remove_at", "index": 4, "expected_removed_id": "ev-m02-05"},
+        {"path": "expected.claims", "operation": "remove_at", "index": 5, "expected_removed_id": "cl-m02-06"},
+        {"path": "expected.actions[0].materials", "operation": "remove_at", "index": 2, "expected_removed_value": "PDF format"},
+        {"path": "expected.actions[0].claim_refs", "operation": "remove_at", "index": 3, "expected_removed_value": "cl-m02-06"},
+        {"path": "expected.fact_states.attachment_content", "from": "confirmed", "to": "unconfirmed"},
+        {"path": "expected.resulting_item.reasoning[1]", "from": "已解析合成附件仅补充 PDF 文件格式约束，不改变主要行动或分区。", "to": "附件解析失败，不能展示或使用只存在于附件中的 PDF 格式约束；正文行动与分区保持不变。"},
+        {"path": "expected.blocked_capabilities", "operation": "append", "value": "attachment_only_claims"},
+        {"path": "expected.uncertainties", "operation": "append", "value": {"uncertainty_id": "unc-mut-dep07", "missing_or_conflict": "附件解析失败，不能确认其中的文件格式要求。", "blocked_capabilities": ["attachment_claims", "attachment_material_constraints"]}}
+      ]
+    },
+    {
+      "mutation_id": "MUT-DEP08-CONSEQUENCE",
+      "mutation_group": "dependency_failure",
+      "parent_case_id": "LOCK-M03",
+      "dependency_id": "DEP08",
+      "root_changed_input": {
+        "path": "input.message.body",
+        "from": "Students admitted in the January 2026 intake whose student visa expires before 31 December 2026 must submit an extension eligibility form.\nFailure to hold valid immigration permission may prevent continued registration.\nSubmission timing will be announced separately.",
+        "to": "Students admitted in the January 2026 intake whose student visa expires before 31 December 2026 must submit an extension eligibility form.\nThe office warns that failing to resolve the immigration matter may have serious consequences for student status, but this notice does not specify the consequence.\nSubmission timing will be announced separately."
+      },
+      "expected_dependency_deltas": [
+        {"path": "expected.evidence[1].quote", "from": "Failure to hold valid immigration permission may prevent continued registration.", "to": "The office warns that failing to resolve the immigration matter may have serious consequences for student status, but this notice does not specify the consequence."},
+        {"path": "expected.claims[1].type", "from": "consequence", "to": "consequence_hint"},
+        {"path": "expected.claims[1].text", "from": "缺少有效入境许可可能阻止继续注册。", "to": "邮件提示学生身份可能出现严重后果，但未说明具体后果。"},
+        {"path": "expected.claims[1].fact_state", "from": "confirmed", "to": "unconfirmed"},
+        {"path": "expected.consequence.truth_id", "from": "CON01", "to": "CON05"},
+        {"path": "expected.consequence.level", "from": "high", "to": "unknown"},
+        {"path": "expected.consequence.reason", "from": "对适用者而言，签证失效可能阻止继续注册。", "to": "只有高后果线索，没有具体且受证据支持的后果。"},
+        {"path": "expected.consequence.unknown_with_high_consequence_clue", "from": false, "to": true},
+        {"path": "expected.consequence.consequence_sort_bucket", "from": "confirmed_high", "to": "unknown_high_clue"},
+        {"path": "expected.consequence.fact_state", "from": "confirmed", "to": "unconfirmed"},
+        {"path": "expected.fact_states.consequence", "from": "confirmed", "to": "unconfirmed"},
+        {"path": "expected.labels", "operation": "remove_value", "value": "高后果"},
+        {"path": "expected.labels", "operation": "append", "value": "高后果线索"},
+        {"path": "expected.blocked_capabilities", "operation": "append", "value": "confirmed_consequence_level"},
+        {"path": "expected.uncertainties", "operation": "append", "value": {"uncertainty_id": "unc-mut-dep08", "missing_or_conflict": "邮件只有严重后果线索，没有说明具体影响。", "blocked_capabilities": ["confirmed_consequence_level", "consequence_based_sorting", "consequence_based_notification"]}}
+      ]
+    },
+    {
+      "mutation_id": "MUT-DEP09-KEY-CHANGE",
+      "mutation_group": "dependency_failure",
+      "parent_case_id": "LOCK-M05",
+      "dependency_id": "DEP09",
+      "root_changed_input": {
+        "path": "input.message.body",
+        "from": "DS7101 數據可視化課堂安排有更改。\n原定 2026 年 9 月 8 日 10:00 HKT 在 A201 上課，現改為同日 14:00 HKT 在 B305 上課。\n此更改適用於所有已選 DS7101 的學生，毋須回覆或確認。",
+        "to": "DS7101 數據可視化課堂安排可能有所調整。\n學系仍在確認新的上課時間與教室；目前未確認任何新舊時間或地點。\n此消息面向所有已選 DS7101 的學生，具體安排將另行通知；毋須回覆或確認。"
+      },
+      "expected_dependency_deltas": [
+        {"path": "expected.evidence[0].quote", "from": "DS7101 數據可視化課堂安排有更改。", "to": "DS7101 數據可視化課堂安排可能有所調整。"},
+        {"path": "expected.evidence[1].quote", "from": "原定 2026 年 9 月 8 日 10:00 HKT 在 A201 上課，現改為同日 14:00 HKT 在 B305 上課。", "to": "學系仍在確認新的上課時間與教室；目前未確認任何新舊時間或地點。"},
+        {"path": "expected.evidence[2].quote", "from": "此更改適用於所有已選 DS7101 的學生，毋須回覆或確認。", "to": "此消息面向所有已選 DS7101 的學生，具體安排將另行通知；毋須回覆或確認。"},
+        {"path": "expected.claims[0].type", "from": "key_change", "to": "possible_key_change"},
+        {"path": "expected.claims[0].text", "from": "DS7101 的上课时间由 10:00 改为 14:00，教室由 A201 改为 B305。", "to": "DS7101 课堂安排可能调整，但新旧时间和地点均未确认。"},
+        {"path": "expected.claims[0].fact_state", "from": "confirmed", "to": "unconfirmed"},
+        {"path": "expected.claims[2].text", "from": "更改适用于所有已选 DS7101 的学生。", "to": "消息面向所有已选 DS7101 的学生。"},
+        {"path": "expected.dates", "operation": "clear"},
+        {"path": "expected.fact_states.dates", "from": "confirmed", "to": "unconfirmed"},
+        {"path": "expected.fact_states.key_change", "from": "confirmed", "to": "unconfirmed"},
+        {"path": "expected.consequence.truth_id", "from": "CON03", "to": null},
+        {"path": "expected.consequence.level", "from": "medium", "to": "unknown"},
+        {"path": "expected.consequence.reason", "from": "本人课程时间与地点关键变更需要优先知道，但没有新增义务或资格风险证据。", "to": "只有可能调整的提示，没有已确认变化或具体后果。"},
+        {"path": "expected.consequence.consequence_sort_bucket", "from": "confirmed_medium", "to": "unknown_other"},
+        {"path": "expected.consequence.fact_state", "from": "confirmed", "to": "unconfirmed"},
+        {"path": "expected.fact_states.consequence", "from": "confirmed", "to": "unconfirmed"},
+        {"path": "expected.notification_channel", "from": "instant", "to": "daily_digest"},
+        {"path": "expected.resulting_item.due_status", "from": "upcoming", "to": "unknown"},
+        {"path": "expected.resulting_item.reasoning[0]", "from": "课程变更已确认，但旧事项无法唯一匹配，所以按 REL07 新建而不覆盖任何旧事项。", "to": "课程直接相关性成立，但具体变更尚未确认，因此保留优先阅读并禁止关键变更即时提醒或覆盖旧事项。"},
+        {"path": "expected.labels", "operation": "remove_value", "value": "关键变更"},
+        {"path": "expected.blocked_capabilities", "operation": "append", "value": "key_change_instant_notification"},
+        {"path": "expected.uncertainties", "operation": "append", "value": {"uncertainty_id": "unc-mut-dep09", "missing_or_conflict": "邮件尚未确认具体的新旧时间或地点。", "blocked_capabilities": ["confirmed_key_change", "key_change_instant_notification", "reset_old_item_read_status", "overwrite_old_fact"]}}
+      ]
+    },
+    {
+      "mutation_id": "MUT-DEP10-NATIVE-IMPORTANCE",
+      "mutation_group": "dependency_failure",
+      "parent_case_id": "LOCK-M08",
+      "dependency_id": "DEP10",
+      "root_changed_input": {"path": "input.message.native_importance.sender_importance", "from": {"present": true, "value": true, "source": "message_header"}, "to": {"present": false, "value": null, "source": "message_header"}},
+      "expected_dependency_deltas": [
+        {"path": "expected.protection_result.applied", "from": true, "to": false},
+        {"path": "expected.protection_result.native_labels", "operation": "remove_at", "index": 0, "expected_removed_value": "发件人标记重要"},
+        {"path": "expected.protection_result.minimum_home_section", "from": "优先阅读", "to": null},
+        {"path": "expected.protection_result.reason", "from": "首次发现的发件人高重要性信号保证至少进入优先阅读；不证明强制或官方。", "to": "发件人重要性字段缺失，不能把缺失伪造成 false，也不能应用该来源的首次保护。"},
+        {"path": "expected.labels", "operation": "remove_value", "value": "发件人标记重要"},
+        {"path": "expected.labels", "operation": "remove_value", "value": "首次保护"},
+        {"path": "expected.fact_states.native_importance", "from": "confirmed", "to": "unconfirmed"},
+        {"path": "expected.resulting_item.home_section", "from": "优先阅读", "to": "其他通知"},
+        {"path": "expected.resulting_item.reasoning[0]", "from": "活动自愿且来源未验证；仅因发件人高重要性首次保护进入优先阅读，不升级为必须做。", "to": "活动自愿、低后果且来源未验证；发件人重要性字段缺失，不能应用首次保护。"},
+        {"path": "expected.blocked_capabilities", "operation": "append", "value": "sender_importance_first_seen_protection"},
+        {"path": "expected.uncertainties", "operation": "append", "value": {"uncertainty_id": "unc-mut-dep10", "missing_or_conflict": "发件人重要性信号缺失；未知不等于 false。", "blocked_capabilities": ["sender_importance_label", "sender_importance_first_seen_protection"]}}
+      ]
+    },
+    {
+      "mutation_id": "MUT-REL-UPDATE",
+      "mutation_group": "relationship",
+      "parent_case_id": "LOCK-M05",
+      "dependency_id": null,
+      "root_changed_input": {
+        "path": "input.message.body",
+        "from": "DS7101 數據可視化課堂安排有更改。\n原定 2026 年 9 月 8 日 10:00 HKT 在 A201 上課，現改為同日 14:00 HKT 在 B305 上課。\n此更改適用於所有已選 DS7101 的學生，毋須回覆或確認。",
+        "to": "本更正取代 hist-msg-m05-a，穩定課堂鍵為 DS7101-LECTURE-GROUP-A-2026T1。\nDS7101 數據可視化 A 組原定 2026 年 9 月 8 日 10:00 HKT 在 A201 上課，現改為同日 14:00 HKT 在 B305 上課。\n此更改適用於所有已選 DS7101 A 組的學生，毋須回覆或確認。"
+      },
+      "expected_dependency_deltas": [
+        {"path": "expected.evidence[0].quote", "from": "DS7101 數據可視化課堂安排有更改。", "to": "本更正取代 hist-msg-m05-a，穩定課堂鍵為 DS7101-LECTURE-GROUP-A-2026T1。"},
+        {"path": "expected.evidence[1].quote", "from": "原定 2026 年 9 月 8 日 10:00 HKT 在 A201 上課，現改為同日 14:00 HKT 在 B305 上課。", "to": "DS7101 數據可視化 A 組原定 2026 年 9 月 8 日 10:00 HKT 在 A201 上課，現改為同日 14:00 HKT 在 B305 上課。"},
+        {"path": "expected.evidence[2].quote", "from": "此更改適用於所有已選 DS7101 的學生，毋須回覆或確認。", "to": "此更改適用於所有已選 DS7101 A 組的學生，毋須回覆或確認。"},
+        {"path": "expected.claims[0].type", "from": "key_change", "to": "update_relation_and_key_change"},
+        {"path": "expected.claims[0].text", "from": "DS7101 的上课时间由 10:00 改为 14:00，教室由 A201 改为 B305。", "to": "该更正明确替换 hist-msg-m05-a，并以稳定键 DS7101-LECTURE-GROUP-A-2026T1 将 A 组时间由 10:00 改为 14:00、教室由 A201 改为 B305。"},
+        {"path": "expected.claims[2].text", "from": "更改适用于所有已选 DS7101 的学生。", "to": "更改适用于所有已选 DS7101 A 组的学生。"},
+        {"path": "expected.relation_truth_id", "from": "REL07", "to": "REL02"},
+        {"path": "expected.incoming_disposition", "from": "new_item", "to": "update_existing"},
+        {"path": "expected.fact_states.relation", "from": "unconfirmed", "to": "confirmed"},
+        {"path": "expected.resulting_item.supersedes_item_id", "operation": "add", "value": "hist-m05-a"},
+        {"path": "expected.resulting_item.superseded_version_status", "operation": "add", "value": "superseded"},
+        {"path": "expected.resulting_item.reasoning[0]", "from": "课程变更已确认，但旧事项无法唯一匹配，所以按 REL07 新建而不覆盖任何旧事项。", "to": "明确旧消息 ID、同一学校与稳定课表键唯一命中 hist-m05-a；旧版本 superseded，新版本 current 并重新裁决阅读、管理和通知状态。"},
+        {"path": "expected.uncertainties", "operation": "remove_at", "index": 0, "expected_removed_id": "unc-m05-01"},
+        {"path": "expected.blocked_capabilities", "operation": "remove_value", "value": "update_existing"},
+        {"path": "expected.blocked_capabilities", "operation": "remove_value", "value": "inherit_calendar_relation"}
+      ]
+    },
+    {
+      "mutation_id": "MUT-REL-POSTPONEMENT",
+      "mutation_group": "relationship",
+      "parent_case_id": "LOCK-M16",
+      "dependency_id": null,
+      "root_changed_input": {
+        "path": "input.message.body",
+        "from": "This correction replaces the schedule in msg-lock-m16-old for stable examination key COMP7405-FINAL-2026T1.\nThe COMP7405 final examination has been postponed from 10 December 2026, 09:00 HKT in Hall A to 12 December 2026, 14:00 HKT in Hall C.\nNo reply or form is required. Missing the revised final examination may result in loss of assessment eligibility.",
+        "to": "This correction replaces the schedule in msg-lock-m16-old for stable examination key COMP7405-FINAL-2026T1.\nThe COMP7405 final examination has been postponed from 10 December 2026, 09:00 HKT in Hall A to 15 December 2026, 14:00 HKT in Hall C.\nNo reply or form is required. Missing the revised final examination may result in loss of assessment eligibility."
+      },
+      "expected_dependency_deltas": [
+        {"path": "expected.evidence[1].quote", "from": "The COMP7405 final examination has been postponed from 10 December 2026, 09:00 HKT in Hall A to 12 December 2026, 14:00 HKT in Hall C.", "to": "The COMP7405 final examination has been postponed from 10 December 2026, 09:00 HKT in Hall A to 15 December 2026, 14:00 HKT in Hall C."},
+        {"path": "expected.claims[1].text", "from": "COMP7405 期末考试由 12 月 10 日 09:00 Hall A 延期至 12 月 12 日 14:00 Hall C。", "to": "COMP7405 期末考试由 12 月 10 日 09:00 Hall A 延期至 12 月 15 日 14:00 Hall C。"},
+        {"path": "expected.dates[1].original_text", "from": "12 December 2026, 14:00 HKT", "to": "15 December 2026, 14:00 HKT"},
+        {"path": "expected.dates[1].normalized", "from": "2026-12-12T14:00:00+08:00", "to": "2026-12-15T14:00:00+08:00"}
+      ]
+    },
+    {
+      "mutation_id": "MUT-REL-CANCELLATION",
+      "mutation_group": "relationship",
+      "parent_case_id": "LOCK-M16",
+      "dependency_id": null,
+      "root_changed_input": {
+        "path": "input.message.body",
+        "from": "This correction replaces the schedule in msg-lock-m16-old for stable examination key COMP7405-FINAL-2026T1.\nThe COMP7405 final examination has been postponed from 10 December 2026, 09:00 HKT in Hall A to 12 December 2026, 14:00 HKT in Hall C.\nNo reply or form is required. Missing the revised final examination may result in loss of assessment eligibility.",
+        "to": "This cancellation replaces the schedule in msg-lock-m16-old for stable examination key COMP7405-FINAL-2026T1.\nThe COMP7405 final examination scheduled for 10 December 2026, 09:00 HKT in Hall A has been cancelled.\nNo reply or form is required, and students must not attend the cancelled examination."
+      },
+      "expected_dependency_deltas": [
+        {"path": "expected.evidence[0].quote", "from": "This correction replaces the schedule in msg-lock-m16-old for stable examination key COMP7405-FINAL-2026T1.", "to": "This cancellation replaces the schedule in msg-lock-m16-old for stable examination key COMP7405-FINAL-2026T1."},
+        {"path": "expected.evidence[1].quote", "from": "The COMP7405 final examination has been postponed from 10 December 2026, 09:00 HKT in Hall A to 12 December 2026, 14:00 HKT in Hall C.", "to": "The COMP7405 final examination scheduled for 10 December 2026, 09:00 HKT in Hall A has been cancelled."},
+        {"path": "expected.evidence[2].quote", "from": "No reply or form is required. Missing the revised final examination may result in loss of assessment eligibility.", "to": "No reply or form is required, and students must not attend the cancelled examination."},
+        {"path": "expected.claims[0].text", "from": "该更正明确替换 msg-lock-m16-old，并使用相同稳定考试键。", "to": "该取消通知明确替换 msg-lock-m16-old，并使用相同稳定考试键。"},
+        {"path": "expected.claims[1].type", "from": "key_change", "to": "cancellation"},
+        {"path": "expected.claims[1].text", "from": "COMP7405 期末考试由 12 月 10 日 09:00 Hall A 延期至 12 月 12 日 14:00 Hall C。", "to": "原定 12 月 10 日 09:00 在 Hall A 举行的 COMP7405 期末考试已取消。"},
+        {"path": "expected.claims[2].type", "from": "no_new_action_and_consequence", "to": "no_new_action_after_cancellation"},
+        {"path": "expected.claims[2].text", "from": "无需回复或填表；错过更新后的考试可能失去考核资格。", "to": "无需回复或填表，且不应前往已取消的考试。"},
+        {"path": "expected.relation_truth_id", "from": "REL02", "to": "REL04"},
+        {"path": "expected.labels", "operation": "remove_value", "value": "日期已更新"},
+        {"path": "expected.labels", "operation": "append", "value": "考试已取消"},
+        {"path": "expected.dates[0].role", "from": "old_exam_start", "to": "cancelled_exam_start"},
+        {"path": "expected.dates", "operation": "remove_at", "index": 1, "expected_removed_id": "date-m16-new"},
+        {"path": "expected.consequence.truth_id", "from": "CON01", "to": "CON04"},
+        {"path": "expected.consequence.level", "from": "high", "to": "low"},
+        {"path": "expected.consequence.reason", "from": "错过更新后的期末考试可能失去考核资格。", "to": "考试已取消且无需回复或填表，不再存在参加该场考试的义务。"},
+        {"path": "expected.consequence.consequence_sort_bucket", "from": "confirmed_high", "to": "confirmed_low"},
+        {"path": "expected.resulting_item.item_status", "from": "active", "to": "cancelled"},
+        {"path": "expected.resulting_item.management_status", "from": "active", "to": "arranged"},
+        {"path": "expected.resulting_item.due_status", "from": "upcoming", "to": "not_applicable"},
+        {"path": "expected.resulting_item.reasoning[0]", "from": "明确旧消息 ID、同一学校和稳定考试键唯一命中旧事项；创建 current 新版本，旧版本 superseded，并因安排失效恢复活跃未读。", "to": "取消事实通过旧消息 ID 与稳定考试键唯一命中；旧版本 superseded，新版本 current/cancelled，保留既有管理和日历历史并在用户看到前保持未读活跃。"},
+        {"path": "expected.blocked_capabilities", "operation": "append", "value": "silent_calendar_delete"}
+      ]
+    }
+  ]
+}

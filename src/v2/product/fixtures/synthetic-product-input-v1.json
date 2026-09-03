@@ -1,0 +1,140 @@
+{
+  "snapshotVersion": "synthetic-product-input-v1",
+  "dataClass": "fully_synthetic",
+  "datasetSplit": "development",
+  "caseId": "DEV001",
+  "notification": {
+    "id": "DEV-NOTIF-PAIR-01",
+    "schoolName": "港湾大学（合成）",
+    "senderName": "COMP Course Office（合成）",
+    "senderAddress": "course-office@comp.harbour.invalid",
+    "subject": "COMP7101 Assignment 1 deadline",
+    "sentAt": "2026-08-29T09:00:00+08:00",
+    "receivedAt": "2026-08-29T09:02:00+08:00",
+    "language": "en",
+    "body": "COMP7101 students must submit Assignment 1 through https://learn.harbour.invalid/comp7101 by 5:00 pm HKT on 31 August 2026. Late submissions receive zero marks unless an approved extension exists."
+  },
+  "nativeImportance": {
+    "senderImportance": {
+      "present": true,
+      "value": false,
+      "source": "message_header"
+    },
+    "providerImportance": {
+      "present": true,
+      "value": false,
+      "source": "mail_provider"
+    },
+    "userStar": {
+      "present": true,
+      "value": false,
+      "source": "user_state"
+    }
+  },
+  "securityFacts": {
+    "connectorAuthentication": "passed",
+    "senderMapping": "matched",
+    "securityConflict": false,
+    "actionChannel": {
+      "type": "web",
+      "domain": "learn.harbour.invalid",
+      "status": "verified"
+    }
+  },
+  "harnessContext": {
+    "currentTimeHkt": "2026-08-29T12:00:00+08:00",
+    "timezone": "Asia/Hong_Kong",
+    "historicalItems": []
+  },
+  "modelInput": {
+    "input_contract_version": "phase2r-core-model-input-v2",
+    "task_type": "analyze_school_notification_core",
+    "target_language": "zh-Hans",
+    "candidate_schema_version": "notification-analysis-core-candidate-p1-v2",
+    "message": {
+      "subject": "COMP7101 Assignment 1 deadline",
+      "language": "en",
+      "body": "COMP7101 students must submit Assignment 1 through https://learn.harbour.invalid/comp7101 by 5:00 pm HKT on 31 August 2026. Late submissions receive zero marks unless an approved extension exists."
+    },
+    "source_context": {
+      "sender_school_name": "港湾大学"
+    },
+    "profile_refs": [
+      {
+        "profile_field_id": "pf-dev001-school",
+        "field_type": "school",
+        "value": "港湾大学"
+      },
+      {
+        "profile_field_id": "pf-dev001-project",
+        "field_type": "programme",
+        "value": "MSc Computing"
+      },
+      {
+        "profile_field_id": "pf-dev001-cohort",
+        "field_type": "cohort",
+        "value": "2026"
+      },
+      {
+        "profile_field_id": "pf-dev001-term",
+        "field_type": "term",
+        "value": "2026 Fall"
+      },
+      {
+        "profile_field_id": "pf-dev001-course-comp7101",
+        "field_type": "course",
+        "value": "COMP7101 | Applied Computing | aliases: AC"
+      }
+    ]
+  },
+  "trustedProfileEvidence": [
+    {
+      "profile_field_id": "pf-dev001-school",
+      "field_type": "school",
+      "value": "港湾大学",
+      "source": "synthetic_invite_profile",
+      "confirmation_status": "confirmed",
+      "valid_until": "2027-08-31"
+    },
+    {
+      "profile_field_id": "pf-dev001-project",
+      "field_type": "programme",
+      "value": "MSc Computing",
+      "source": "synthetic_user_confirmed",
+      "confirmation_status": "confirmed",
+      "valid_until": "2027-08-31"
+    },
+    {
+      "profile_field_id": "pf-dev001-cohort",
+      "field_type": "cohort",
+      "value": "2026",
+      "source": "synthetic_user_confirmed",
+      "confirmation_status": "confirmed",
+      "valid_until": "2027-08-31"
+    },
+    {
+      "profile_field_id": "pf-dev001-term",
+      "field_type": "term",
+      "value": "2026 Fall",
+      "source": "synthetic_user_confirmed",
+      "confirmation_status": "confirmed",
+      "valid_until": "2026-12-31"
+    },
+    {
+      "profile_field_id": "pf-dev001-course-comp7101",
+      "field_type": "course",
+      "value": "COMP7101 | Applied Computing | aliases: AC",
+      "source": "synthetic_user_confirmed",
+      "confirmation_status": "confirmed",
+      "valid_until": "2026-12-31",
+      "course_status": "confirmed"
+    }
+  ],
+  "trustedSourceContextEvidence": {
+    "mappingVersion": "synthetic-sender-school-map-v1",
+    "mappingId": "synthetic-harbour-university-domain-v1",
+    "senderSchoolName": "港湾大学"
+  },
+  "modelInputHash": "sha256:5f7e4d9e243e95a0f11ac7736f330252d6939ff845658cd91b04e88177888b5e",
+  "snapshotHash": "sha256:ee18d0897a63f2f380ccf20df584815b9fa326b1ed3949dad65cbe6212d5405e"
+}

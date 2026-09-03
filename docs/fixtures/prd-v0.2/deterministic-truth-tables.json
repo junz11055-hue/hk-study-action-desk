@@ -1,0 +1,343 @@
+{
+  "fixture_version": "prd-v0.2-fixture-v1",
+  "generated_on": "2026-08-30",
+  "runtime_status": "not_run",
+  "data_class": "fully_synthetic",
+  "source_truth_tables": [
+    {
+      "truth_id": "SRC01",
+      "facts": {
+        "connector_authentication": "passed",
+        "sender_mapping": "matched",
+        "tenant_mapping": "matched",
+        "reviewed_service_provider_scope_match": null,
+        "action_channels": [{"type": "web", "domain": "official.synthetic.invalid", "status": "verified"}],
+        "security_conflict": false,
+        "risk_reasons": [],
+        "recipient_account_match": null
+      },
+      "expected": {
+        "source_status": "official_verified",
+        "action_channel_status": "verified",
+        "may_support_to_do": true,
+        "reason": "来源映射与办理渠道均通过独立校验；仍须另行通过适用性和义务门。"
+      }
+    },
+    {
+      "truth_id": "SRC02",
+      "facts": {
+        "connector_authentication": "passed",
+        "sender_mapping": "not_available",
+        "tenant_mapping": "not_available",
+        "reviewed_service_provider_scope_match": true,
+        "action_channels": [{"type": "service_provider_web", "domain": "reviewed-provider.synthetic.invalid", "status": "verified"}],
+        "security_conflict": false,
+        "risk_reasons": [],
+        "recipient_account_match": null,
+        "school_business_mapping_match": true,
+        "final_action_domain_match": true
+      },
+      "expected": {
+        "source_status": "official_verified",
+        "action_channel_status": "verified",
+        "may_support_to_do": true,
+        "scope_limit": "仅在已审核的学校、业务范围与最终办理域名内成立。"
+      }
+    },
+    {
+      "truth_id": "SRC03",
+      "facts": {
+        "connector_authentication": "passed",
+        "sender_mapping": "not_matched",
+        "tenant_mapping": "not_matched",
+        "reviewed_service_provider_scope_match": null,
+        "action_channels": [{"type": "web", "domain": "unverified.synthetic.invalid", "status": "unverified"}],
+        "security_conflict": false,
+        "risk_reasons": ["sender_mapping_not_matched", "tenant_mapping_not_matched"],
+        "recipient_account_match": null,
+        "school_domain": true,
+        "school_domain_alone_sufficient": false
+      },
+      "expected": {
+        "source_status": "unverified",
+        "action_channel_status": "unverified",
+        "may_support_to_do": false,
+        "fallback": "优先阅读 + 先核验"
+      }
+    },
+    {
+      "truth_id": "SRC04",
+      "facts": {
+        "connector_authentication": "not_available",
+        "sender_mapping": "not_matched",
+        "tenant_mapping": "not_matched",
+        "reviewed_service_provider_scope_match": null,
+        "action_channels": [{"type": "web", "domain": "lookalike.synthetic.invalid", "status": "unverified"}],
+        "security_conflict": false,
+        "risk_reasons": ["connector_authentication_not_available", "display_name_or_logo_only", "lookalike_domain"],
+        "recipient_account_match": null,
+        "display_name_or_logo_only": true,
+        "official_tone_or_importance_only": true,
+        "lookalike_domain": true
+      },
+      "expected": {
+        "source_status": "unverified",
+        "action_channel_status": "unverified",
+        "may_label_official_verified": false,
+        "native_importance_protection_still_applies": true
+      }
+    },
+    {
+      "truth_id": "SRC05",
+      "facts": {
+        "connector_authentication": "passed",
+        "sender_mapping": "matched",
+        "tenant_mapping": "matched",
+        "reviewed_service_provider_scope_match": null,
+        "action_channels": [{"type": "web", "domain": "unverified-action.synthetic.invalid", "status": "unverified"}],
+        "security_conflict": false,
+        "risk_reasons": ["final_action_domain_not_matched", "unknown_reply_to_or_redirect"],
+        "recipient_account_match": null,
+        "high_risk_action": true,
+        "final_action_domain_match": false,
+        "unknown_reply_to_or_redirect": true
+      },
+      "expected": {
+        "source_status": "official_verified",
+        "action_channel_status": "unverified",
+        "may_support_to_do": false,
+        "action_link_enabled": false,
+        "calendar_eligible": false,
+        "fallback": "优先阅读 + 先核验"
+      }
+    },
+    {
+      "truth_id": "SRC06",
+      "facts": {
+        "connector_authentication": "failed",
+        "sender_mapping": "not_matched",
+        "tenant_mapping": "not_matched",
+        "reviewed_service_provider_scope_match": null,
+        "action_channels": [{"type": "reply_or_payment", "domain": "malicious.synthetic.invalid", "status": "suspicious"}],
+        "security_conflict": true,
+        "risk_reasons": ["connector_authentication_failed", "impersonation_or_known_malicious", "credential_or_abnormal_payment_request"],
+        "recipient_account_match": null,
+        "impersonation_or_known_malicious": true,
+        "credential_or_abnormal_payment_request": true
+      },
+      "expected": {
+        "source_status": "suspicious",
+        "action_channel_status": "suspicious",
+        "may_support_to_do": false,
+        "action_link_enabled": false,
+        "fallback": "醒目安全提醒"
+      }
+    },
+    {
+      "truth_id": "SRC07",
+      "facts": {
+        "connector_authentication": "passed",
+        "sender_mapping": "matched",
+        "tenant_mapping": "matched",
+        "reviewed_service_provider_scope_match": null,
+        "action_channels": [{"type": "none", "domain": null, "status": "not_required"}],
+        "security_conflict": false,
+        "risk_reasons": [],
+        "recipient_account_match": null,
+        "external_action_channel_required": false,
+        "action_is_attend_or_bring_material": true
+      },
+      "expected": {
+        "source_status": "official_verified",
+        "action_channel_status": "not_required",
+        "may_support_to_do": true,
+        "must_not_invent_link": true
+      }
+    }
+  ],
+  "relation_truth_tables": [
+    {
+      "truth_id": "REL01",
+      "facts": {
+        "match_operator": "OR",
+        "branches": [
+          {"branch_id": "same_provider_message_id", "same_provider_message_id": true},
+          {"branch_id": "same_normalized_fingerprints", "normalized_content_fingerprint_equal": true, "normalized_attachment_fingerprint_equal": true}
+        ]
+      },
+      "expected": {
+        "incoming_disposition": "exact_duplicate_suppressed",
+        "create_card": false,
+        "create_version": false,
+        "send_notification": false,
+        "visibility_status": "merged",
+        "record_duplicate_event": true
+      }
+    },
+    {
+      "truth_id": "REL02",
+      "facts": {
+        "explicit_old_message_or_item_reference": true,
+        "school_business_object_and_stable_key_match": true,
+        "new_date_location_or_rule": true
+      },
+      "expected": {
+        "incoming_disposition": "update_existing",
+        "create_new_current_version": true,
+        "supersede_old_version": true,
+        "old_version_status": "superseded",
+        "new_version_status": "current",
+        "recompute_all_product_states": true,
+        "recompute_notification_decision": true
+      }
+    },
+    {
+      "truth_id": "REL03",
+      "facts": {
+        "same_thread": true,
+        "stable_business_key_and_action_object_match": true,
+        "body_explicitly_corrects_postpones_or_replaces": true
+      },
+      "expected": {
+        "incoming_disposition": "update_existing",
+        "create_new_current_version": true,
+        "old_version_status": "superseded",
+        "new_version_status": "current",
+        "recompute_all_product_states": true,
+        "recompute_notification_decision": true,
+        "subject_similarity_alone_sufficient": false
+      }
+    },
+    {
+      "truth_id": "REL04",
+      "facts": {
+        "explicit_cancellation": true,
+        "reference_or_stable_key_uniquely_matches_old_item": true
+      },
+      "expected": {
+        "incoming_disposition": "update_existing",
+        "old_version_status": "superseded",
+        "new_version_status": "current",
+        "item_status": "cancelled",
+        "read_status": "unread",
+        "visibility_status_before_open": "active",
+        "preserve_history": true,
+        "recompute_all_product_states": true,
+        "recompute_notification_decision": true
+      }
+    },
+    {
+      "truth_id": "REL05",
+      "facts": {
+        "similar_subject_sender_or_course_code": true,
+        "same_action_object_or_stable_key": false
+      },
+      "expected": {
+        "incoming_disposition": "new_item",
+        "may_overwrite_old_item": false
+      }
+    },
+    {
+      "truth_id": "REL06",
+      "facts": {
+        "same_course": true,
+        "different_assignment_exam_registration_or_due_item": true
+      },
+      "expected": {
+        "incoming_disposition": "new_item",
+        "keep_lifecycles_separate": true,
+        "may_show_course_association": true
+      }
+    },
+    {
+      "truth_id": "REL07",
+      "facts": {
+        "possibly_related": true,
+        "evidence_conflict_or_non_unique_match": true
+      },
+      "expected": {
+        "incoming_disposition": "new_item",
+        "possible_old_item_relation_label": true,
+        "inherit_old_date_management_or_calendar": false
+      }
+    }
+  ],
+  "consequence_truth_tables": [
+    {
+      "truth_id": "CON01",
+      "facts": {
+        "specific_supported_consequence": "可能失去入学、注册、学籍、签证或考试资格，造成不可保证补救的重要财务损失，或造成账号凭证安全事件"
+      },
+      "expected": {
+        "consequence": "high",
+        "consequence_sort_bucket": "confirmed_high",
+        "generic_importance_or_topic_alone_sufficient": false
+      }
+    },
+    {
+      "truth_id": "CON02",
+      "facts": {
+        "official_remedy_or_grace_available": true,
+        "remedy_is_current_and_does_not_first_remove_eligibility": true,
+        "recoverable_delay_fee_or_service_loss": true
+      },
+      "expected": {
+        "consequence": "medium",
+        "consequence_sort_bucket": "confirmed_medium"
+      }
+    },
+    {
+      "truth_id": "CON03",
+      "facts": {
+        "confirmed_course_or_administrative_change": true,
+        "mandatory_action": false,
+        "qualification_security_or_material_loss": false
+      },
+      "expected": {
+        "consequence": "medium",
+        "consequence_sort_bucket": "confirmed_medium",
+        "key_change_may_still_notify_instantly": true
+      }
+    },
+    {
+      "truth_id": "CON04",
+      "facts": {
+        "purely_voluntary_or_general_information": true,
+        "material_loss_if_ignored": false
+      },
+      "expected": {
+        "consequence": "low",
+        "consequence_sort_bucket": "confirmed_low",
+        "professional_or_native_importance_protection_may_raise_visibility": true
+      }
+    },
+    {
+      "truth_id": "CON05",
+      "facts": {
+        "possible_consequence_hint": true,
+        "missing_attachment_audience_source_or_specific_effect": true,
+        "high_consequence_clue": true
+      },
+      "expected": {
+        "consequence": "unknown",
+        "unknown_with_high_consequence_clue": true,
+        "consequence_sort_bucket": "unknown_high_clue",
+        "fallback": "优先阅读并显示缺口"
+      }
+    },
+    {
+      "truth_id": "CON06",
+      "facts": {
+        "general_account_security_advice": true,
+        "current_account_affected_evidence": false,
+        "mandatory_action": false
+      },
+      "expected": {
+        "consequence": "medium",
+        "consequence_sort_bucket": "confirmed_medium",
+        "verified_breach_or_mandatory_reset_would_be": "high",
+        "phishing_uses_security_state_instead": true
+      }
+    }
+  ]
+}

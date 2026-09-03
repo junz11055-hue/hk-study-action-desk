@@ -1,0 +1,78 @@
+export type SyntheticGuide = Readonly<{
+  id: string;
+  stage: "抵港初期" | "安顿办理";
+  title: string;
+  summary: string;
+  checklist: readonly string[];
+  sourceLabel: string;
+  sourceUrl: string;
+  validThrough: string;
+  reviewOnly: boolean;
+}>;
+
+export const syntheticGuides: readonly SyntheticGuide[] = [
+  {
+    id: "mobile-data",
+    stage: "抵港初期",
+    title: "先让手机在香港能用",
+    summary:
+      "抵港前确认手机支持的网络制式；落地后先解决临时流量，再比较实名、月费和跨境漫游需求。",
+    checklist: [
+      "准备可接收验证码的号码",
+      "比较本地数据量与合约期",
+      "保留运营商登记确认",
+    ],
+    sourceLabel: "香港通讯事务管理局消费者资讯",
+    sourceUrl: "https://www.ofca.gov.hk/en/consumer_focus/guide/general/",
+    validThrough: "上线前必须重新审核",
+    reviewOnly: false,
+  },
+  {
+    id: "octopus",
+    stage: "抵港初期",
+    title: "把日常交通先跑通",
+    summary:
+      "八达通可用于公共交通和部分小额消费；学生优惠资格、申请材料和启用时间应以官方最新说明为准。",
+    checklist: [
+      "先准备一般交通支付方式",
+      "核对学生优惠资格",
+      "不要把优惠申请等同于即时生效",
+    ],
+    sourceLabel: "八达通官方网站",
+    sourceUrl: "https://www.octopus.com.hk/en/consumer/index.html",
+    validThrough: "上线前必须重新审核",
+    reviewOnly: false,
+  },
+  {
+    id: "bank-account",
+    stage: "安顿办理",
+    title: "开户前先核对材料",
+    summary:
+      "不同银行对地址证明、学生身份和预约方式要求不同；不要根据 AI 提示携带或上传敏感证件。",
+    checklist: [
+      "只查看银行官方渠道",
+      "提前确认所需材料",
+      "不要向本产品上传银行卡或证件扫描件",
+    ],
+    sourceLabel: "香港金融管理局消费者资讯",
+    sourceUrl: "https://www.hkma.gov.hk/eng/smart-consumers/",
+    validThrough: "上线前必须重新审核",
+    reviewOnly: true,
+  },
+  {
+    id: "hkid",
+    stage: "安顿办理",
+    title: "身份证事项只看官方要求",
+    summary:
+      "预约资格、时限和材料属于高影响信息；本演示只提供核对入口，不生成个性化法律或入境结论。",
+    checklist: [
+      "从政府官方网站进入",
+      "核对本人签证与逗留条件",
+      "对日期或资格有疑问时联系官方部门",
+    ],
+    sourceLabel: "香港政府一站通身份证资讯",
+    sourceUrl: "https://www.gov.hk/en/residents/immigration/idcard/",
+    validThrough: "上线前必须重新审核",
+    reviewOnly: true,
+  },
+] as const;

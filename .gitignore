@@ -1,0 +1,15 @@
+.env
+.DS_Store
+node_modules/
+coverage/
+*.log
+.runtime/
+frontend/.next/
+frontend/out/
+frontend/coverage/
+frontend/playwright-report/
+frontend/test-results/
+frontend/.turbo/
+frontend/*.tsbuildinfo
+frontend/.env*
+!frontend/.env.example

@@ -1,0 +1,96 @@
+{
+  "fixture_version": "prd-v0.2-fixture-v1",
+  "generated_on": "2026-08-30",
+  "runtime_status": "not_run",
+  "data_class": "fully_synthetic",
+  "sequences": [
+    {
+      "sequence_id": "STATE-ST01",
+      "truth_id": "ST01",
+      "initial": {"read_status": "unread", "management_status": "active", "item_status": "active", "visibility_status": "active", "due_status": "not_applicable"},
+      "preconditions": {"home_section": "优先阅读", "mandatory_action": false, "unresolved_high_consequence_or_security_gap": false, "information_complete": true},
+      "event": {"type": "core_card_opened", "actor": "user"},
+      "expected": {"read_status": "read", "management_status": "active", "item_status": "active", "visibility_status": "read_folded", "due_status": "not_applicable", "notification_side_effect": "none", "metric_events": ["card_viewed"], "counts_as_core_management": false}
+    },
+    {
+      "sequence_id": "STATE-ST02",
+      "truth_id": "ST02",
+      "initial": {"read_status": "unread", "management_status": "active", "item_status": "active", "visibility_status": "active", "due_status": "unknown"},
+      "preconditions": {"possible_high_consequence_or_unparsed_attachment_or_unverified_source": true},
+      "event": {"type": "core_card_opened", "actor": "user"},
+      "expected": {"read_status": "read", "management_status": "active", "item_status": "active", "visibility_status": "active", "due_status": "unknown", "notification_side_effect": "none", "metric_events": ["card_viewed", "unresolved_gap_remains"], "forced_confirmation": false, "counts_as_core_management": false}
+    },
+    {
+      "sequence_id": "STATE-ST03",
+      "truth_id": "ST03",
+      "initial": {"read_status": "unread", "management_status": "active", "item_status": "active", "visibility_status": "active", "due_status": "upcoming"},
+      "preconditions": {"home_section": "要处理"},
+      "event": {"type": "core_card_opened", "actor": "user"},
+      "expected": {"read_status": "read", "management_status": "active", "item_status": "active", "visibility_status": "active", "due_status": "upcoming", "notification_side_effect": "none", "metric_events": ["card_viewed"], "counts_as_core_management": false}
+    },
+    {
+      "sequence_id": "STATE-ST04",
+      "truth_id": "ST04",
+      "initial": {"read_status": "read", "management_status": "active", "item_status": "active", "visibility_status": "active", "due_status": "upcoming"},
+      "event": {"type": "snooze_set", "actor": "user", "snooze_until": "2026-09-02T09:00:00+08:00", "valid": true},
+      "expected": {"read_status": "read", "management_status": "snoozed", "item_status": "active", "visibility_status": "user_hidden", "due_status": "upcoming", "notification_side_effect": "schedule_one_user_selected_reminder", "metric_events": ["weak_management_snoozed"], "counts_as_core_management": false}
+    },
+    {
+      "sequence_id": "STATE-ST05",
+      "truth_id": "ST05",
+      "initial": {"read_status": "read", "management_status": "snoozed", "item_status": "active", "visibility_status": "user_hidden", "due_status": "upcoming"},
+      "event": {"type": "snooze_time_reached", "actor": "system", "at": "2026-09-02T09:00:00+08:00"},
+      "expected": {"read_status": "unread", "management_status": "active", "item_status": "active", "visibility_status": "active", "due_status": "upcoming", "notification_side_effect": "send_once_using_user_selected_channel", "metric_events": ["snooze_reactivated", "notification_decision_created"], "counts_as_core_management": false}
+    },
+    {
+      "sequence_id": "STATE-ST06",
+      "truth_id": "ST06",
+      "initial": {"read_status": "read", "management_status": "active", "item_status": "active", "visibility_status": "active", "due_status": "upcoming"},
+      "event": {"type": "persistent_arrangement_succeeded", "actor": "system_after_user_approval", "arrangement_kind": "internal_task_fixture"},
+      "expected": {"read_status": "read", "management_status": "arranged", "item_status": "active", "visibility_status": "user_hidden", "due_status": "upcoming", "notification_side_effect": "none", "metric_events": ["core_management_arranged"], "auto_complete": false, "counts_as_core_management": true}
+    },
+    {
+      "sequence_id": "STATE-ST07",
+      "truth_id": "ST07",
+      "initial": {"read_status": "read", "management_status": "active", "item_status": "active", "visibility_status": "active", "due_status": "upcoming"},
+      "event": {"type": "mark_completed", "actor": "user"},
+      "expected": {"read_status": "read", "management_status": "completed", "item_status": "active", "visibility_status": "user_hidden", "due_status": "upcoming", "notification_side_effect": "cancel_pending_product_reminders", "metric_events": ["core_management_completed", "user_reported_completion"], "preserve_history": true, "counts_as_core_management": true}
+    },
+    {
+      "sequence_id": "STATE-ST08",
+      "truth_id": "ST08",
+      "initial": {"read_status": "read", "management_status": "active", "item_status": "active", "visibility_status": "active", "due_status": "unknown"},
+      "event": {"type": "mark_irrelevant_for_current_item", "actor": "user"},
+      "expected": {"read_status": "read", "management_status": "irrelevant", "item_status": "active", "visibility_status": "user_hidden", "due_status": "unknown", "notification_side_effect": "suppress_current_item_only", "metric_events": ["current_item_marked_irrelevant"], "create_long_term_rule": false}
+    },
+    {
+      "sequence_id": "STATE-ST09",
+      "truth_id": "ST09",
+      "initial": {"read_status": "read", "management_status": "arranged", "item_status": "active", "visibility_status": "user_hidden", "due_status": "upcoming", "version_status": "current"},
+      "event": {"type": "material_update_received", "actor": "verified_source", "invalidates_arrangement_or_adds_obligation": true},
+      "expected": {"old_version_status": "superseded", "version_status": "current", "read_status": "unread", "management_status": "active", "item_status": "active", "visibility_status": "active", "due_status": "upcoming", "notification_side_effect": "recompute_and_maybe_notify", "metric_events": ["material_update_received", "item_reactivated"]}
+    },
+    {
+      "sequence_id": "STATE-ST10",
+      "truth_id": "ST10",
+      "initial": {"read_status": "read", "management_status": "arranged", "item_status": "active", "visibility_status": "user_hidden", "due_status": "upcoming", "version_status": "current"},
+      "event": {"type": "material_update_received", "actor": "verified_source", "invalidates_arrangement_or_adds_obligation": false},
+      "expected": {"old_version_status": "superseded", "version_status": "current", "read_status": "unread", "management_status": "arranged", "item_status": "active", "visibility_status": "active", "due_status": "upcoming", "notification_side_effect": "recompute_for_reading", "metric_events": ["material_update_received", "arrangement_preserved"]}
+    },
+    {
+      "sequence_id": "STATE-ST11",
+      "truth_id": "ST11",
+      "initial": {"read_status": "read", "management_status": "arranged", "item_status": "active", "visibility_status": "user_hidden", "due_status": "upcoming", "version_status": "current", "north_star_eligible": true, "north_star_maturity_status": "pending"},
+      "event": {"type": "verified_cancellation_received", "actor": "verified_source", "received_before_confirmed_due_time": true},
+      "expected": {"old_version_status": "superseded", "version_status": "current", "read_status": "unread", "management_status": "arranged", "item_status": "cancelled", "visibility_status": "active", "due_status": "not_applicable", "north_star_eligible": true, "north_star_maturity_status": "excluded_cancelled_before_due", "notification_side_effect": "recompute_and_maybe_notify", "calendar_side_effect": "change_preview_only_no_silent_calendar_write", "metric_events": ["cancellation_change_created"], "after_user_opens": {"read_status": "read", "visibility_status": "read_folded"}, "manual_confirmation_required": false}
+    },
+    {
+      "sequence_id": "STATE-ST12",
+      "truth_id": "ST12",
+      "initial": {"read_status": "read", "management_status": "active", "item_status": "active", "visibility_status": "active", "due_status": "upcoming", "north_star_eligible": true, "north_star_maturity_status": "pending"},
+      "preconditions": {"mandatory_or_high_consequence": true, "completed": false, "cancellation_or_invalidation_evidence": false},
+      "event": {"type": "confirmed_due_time_passed", "actor": "system"},
+      "expected": {"read_status": "read", "management_status": "active", "item_status": "active", "visibility_status": "active", "due_status": "overdue", "north_star_eligible": true, "north_star_maturity_status": "mature_included", "notification_side_effect": "show_remedy_verification_prompt_no_invented_remedy", "metric_events": ["item_became_overdue"], "auto_complete_or_invalidate": false}
+    }
+  ]
+}

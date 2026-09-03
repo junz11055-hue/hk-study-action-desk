@@ -1,0 +1,19 @@
+[build]
+  base = "frontend/"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "22.22.2"
+  NPM_FLAGS = "--no-audit --no-fund"
+  DEMO_MODE = "hosted"
+
+[dev]
+  framework = "next"
+  targetPort = 3000
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"

@@ -1,0 +1,242 @@
+{
+  "fixture_package_id": "prd-v0.2-synthetic-product-acceptance",
+  "fixture_version": "0.2.0",
+  "prd_version": "0.2",
+  "generated_on": "2026-08-30",
+  "data_class": "fully_synthetic",
+  "runtime_status": "not_run",
+  "authorization": {
+    "approved_scope": "generate_static_synthetic_acceptance_fixtures_and_read_only_structure_validation",
+    "allowed": [
+      "create_fixture_json",
+      "create_fixture_documentation",
+      "parse_json_read_only",
+      "validate_schema_counts_references_and_verbatim_evidence_read_only"
+    ],
+    "not_authorized": [
+      "modify_or_start_product_code",
+      "run_fixtures_against_product_harness_or_rule_baseline",
+      "call_any_model",
+      "connect_email_or_calendar",
+      "use_real_student_data_email_or_attachment",
+      "access_external_network",
+      "deploy_or_publish"
+    ]
+  },
+  "fixed_test_clock": {
+    "current_time_hkt": "2026-08-29T12:00:00+08:00",
+    "timezone": "Asia/Hong_Kong",
+    "unique_clock_values_in_base_cases": 1
+  },
+  "artifacts": [
+    {
+      "path": "base-development.json",
+      "artifact_type": "base_case",
+      "dataset_split": "development",
+      "actual_count": 32
+    },
+    {
+      "path": "base-locked.json",
+      "artifact_type": "base_case",
+      "dataset_split": "locked",
+      "actual_count": 16
+    },
+    {
+      "path": "mutations.locked.json",
+      "artifact_type": "locked_mutation",
+      "dataset_split": "locked",
+      "actual_count": 16
+    },
+    {
+      "path": "followups.json",
+      "artifact_type": "fixed_followup",
+      "dataset_split": "mixed",
+      "actual_count": 12
+    },
+    {
+      "path": "state-transitions.locked.json",
+      "artifact_type": "deterministic_state_transition",
+      "dataset_split": "locked",
+      "actual_count": 12
+    },
+    {
+      "path": "deterministic-truth-tables.json",
+      "artifact_type": "deterministic_truth_table",
+      "dataset_split": "not_applicable",
+      "actual_count": 20
+    },
+    {
+      "path": "fixture-contract.md",
+      "artifact_type": "fixture_contract",
+      "actual_count": 1
+    },
+    {
+      "path": "README.md",
+      "artifact_type": "package_readme",
+      "actual_count": 1
+    },
+    {
+      "path": "manifest.json",
+      "artifact_type": "package_manifest",
+      "actual_count": 1
+    }
+  ],
+  "related_records": [
+    "../../05-product-requirements-document-v0.2.md",
+    "../../06-synthetic-fixture-generation-record.md"
+  ],
+  "base_cases": {
+    "total": 48,
+    "by_split": {
+      "development": 32,
+      "locked": 16
+    },
+    "by_language": {
+      "en": 20,
+      "zh-Hant": 14,
+      "mixed": 10,
+      "zh-Hans": 4
+    },
+    "by_home_result": {
+      "要处理": 16,
+      "优先阅读": 18,
+      "其他通知": 10,
+      "merged_without_new_home_card": 4
+    },
+    "by_primary_scenario": {
+      "专业与课程直接相关": 8,
+      "高后果非专业事务": 8,
+      "原生重要标记边界": 6,
+      "普通行政、活动与生活": 5,
+      "画像缺失与适用性歧义": 5,
+      "日期、更新、取消与去重": 8,
+      "安全与对抗内容": 4,
+      "附件与解析状态": 4
+    },
+    "exact_duplicate_suppressed": 4,
+    "business_date_records": 49,
+    "native_importance": {
+      "cases_with_any_true_signal": 14,
+      "true_signal_total": 15,
+      "by_source": {
+        "sender_importance": 6,
+        "provider_importance": 4,
+        "user_starred": 5
+      }
+    },
+    "safety_or_suspicious": {
+      "predicate": "source_status != official_verified OR action_channel_status in {unverified,suspicious}",
+      "case_count": 8
+    },
+    "paired_source_messages": {
+      "group_count": 8,
+      "case_count": 16,
+      "all_in_split": "development",
+      "cross_split_source_overlap_count": 0,
+      "source_message_ids": [
+        "DEV-SRC-PAIR-01",
+        "DEV-SRC-PAIR-02",
+        "DEV-SRC-PAIR-03",
+        "DEV-SRC-PAIR-04",
+        "DEV-SRC-PAIR-05",
+        "DEV-SRC-PAIR-06",
+        "DEV-SRC-PAIR-07",
+        "DEV-SRC-PAIR-08"
+      ]
+    }
+  },
+  "locked_coverage": {
+    "matrix_ids": [
+      "M01",
+      "M02",
+      "M03",
+      "M04",
+      "M05",
+      "M06",
+      "M07",
+      "M08",
+      "M09",
+      "M10",
+      "M11",
+      "M12",
+      "M13",
+      "M14",
+      "M15",
+      "M16"
+    ],
+    "mutations": {
+      "total": 16,
+      "profile_state": 3,
+      "dependency_failure": 10,
+      "relationship": 3,
+      "profile_states": [
+        "candidate",
+        "expired",
+        "removed"
+      ],
+      "dependency_ids": [
+        "DEP01",
+        "DEP02",
+        "DEP03",
+        "DEP04",
+        "DEP05",
+        "DEP06",
+        "DEP07",
+        "DEP08",
+        "DEP09",
+        "DEP10"
+      ]
+    },
+    "followups": {
+      "total": 12,
+      "development": 6,
+      "locked": 6,
+      "per_question": 4,
+      "per_question_split": {
+        "development": 2,
+        "locked": 2
+      }
+    },
+    "state_transition_ids": [
+      "ST01",
+      "ST02",
+      "ST03",
+      "ST04",
+      "ST05",
+      "ST06",
+      "ST07",
+      "ST08",
+      "ST09",
+      "ST10",
+      "ST11",
+      "ST12"
+    ],
+    "truth_tables": {
+      "source": 7,
+      "relation": 7,
+      "consequence": 6,
+      "total": 20
+    }
+  },
+  "static_validation": {
+    "status": "structure_passed",
+    "scope": "read_only_artifact_validation_only",
+    "json_parse_failures": 0,
+    "schema_failures": 0,
+    "duplicate_case_or_expected_id_failures": 0,
+    "reference_failures": 0,
+    "verbatim_evidence_failures": 0,
+    "mutation_root_or_delta_structure_failures": 0,
+    "followup_parent_reference_failures": 0,
+    "non_invalid_email_url_or_action_domain_failures": 0,
+    "base_cases_with_runtime_status_not_run": 48,
+    "followups_with_runtime_status_not_run": 12,
+    "product_harness_rule_or_model_executed": false
+  },
+  "limitations": [
+    "This package is a single-author product acceptance fixture, not an independent gold standard.",
+    "Static validation does not prove product, Harness, rule baseline, or model correctness.",
+    "No real-user need, real-email accuracy, model advantage, production safety, or deployability claim may be made from this package."
+  ],
+  "agent_blueprint_modified": false
+}
