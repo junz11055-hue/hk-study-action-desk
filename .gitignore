@@ -13,3 +13,6 @@ frontend/.turbo/
 frontend/*.tsbuildinfo
 frontend/.env*
 !frontend/.env.example
+
+# Local Netlify folder
+.netlify

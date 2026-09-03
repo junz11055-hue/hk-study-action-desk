@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://hk-study-action-desk.netlify.app"),
   title: {
     default: "留港行动台｜AI 留学管家",
     template: "%s｜留港行动台",

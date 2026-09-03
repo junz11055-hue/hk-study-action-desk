@@ -16,7 +16,7 @@
 
 ## 在线 Demo
 
-**在线地址：发布完成后回填**
+**在线体验：[https://hk-study-action-desk.netlify.app](https://hk-study-action-desk.netlify.app)**
 
 无需邀请码。在线版只展示固定合成数据，不连接邮箱、日历或真实模型，也不代表实时 AI 推理。你可以安全地查看四类典型通知、原文证据、安全提示、香港指南和“已管理”流程。
 
